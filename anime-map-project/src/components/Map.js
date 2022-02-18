@@ -7,6 +7,8 @@ import fetchFakeData from "../api/fetchFakeData";
 import Popup from "./Popup";
 import "../Map.css";
 
+
+
 // mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN;
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg';
 
