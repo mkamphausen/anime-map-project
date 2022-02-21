@@ -27,7 +27,7 @@ const Header = (props)  => (
         style={{ maxHeight: '100px' }}
         navbarScroll
       >
-        <Nav.Link href="/">Map</Nav.Link>
+        <Nav.Link href="#map">Map</Nav.Link>
         <Nav.Link href="#action2">About</Nav.Link>
         <Nav.Link href="#action3">Login</Nav.Link>
       </Nav>
