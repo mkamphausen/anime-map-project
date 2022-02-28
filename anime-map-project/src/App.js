@@ -4,6 +4,7 @@ import "./App.css"
 
 //import components
 import Map from "./components/Map"
+import NewMap from "./components/NewMap"
 import Header from "./components/Header"
 import Data from "./components/Data"
 //import test data
@@ -58,28 +59,29 @@ class App extends React.Component {
             loadSamplePlaces={this.loadSamplePlaces} 
             addPlace={this.addPlace}
           />
-          {/* TEST: DATA IMPORT - USE/DISPLAY DATA */}
-          <div className="testData">
-            {Object.keys(this.state.places).map(key => 
-                        <div key={key}>
-                          {key}: {this.state.places[key].properties.placeName}
-                          <p>
-                          longitude: {this.state.places[key].geometry.coordinates[0]} <br/>
-                          latitude: {this.state.places[key].geometry.coordinates[1]}
-                          </p>
-                          <p>
-                            picture anime:
-                            <img src={this.state.places[key].properties.animeImg} alt={this.state.places[key].properties.placeName} />
-                          </p>
-                          <p>
-                            picture anime:
-                            <img src={this.state.places[key].properties.realImg} alt={this.state.places[key].properties.placeName} />
-                          </p>
-                        </div>
-                      )}
-          </div>
+            {/* TEST: DATA IMPORT - USE/DISPLAY DATA */}
+            {/* <div className="testData">
+              {Object.keys(this.state.places).map(key => 
+                          <div key={key}>
+                            {key}: {this.state.places[key].properties.placeName}
+                            <p>
+                            longitude: {this.state.places[key].geometry.coordinates[0]} <br/>
+                            latitude: {this.state.places[key].geometry.coordinates[1]}
+                            </p>
+                            <p>
+                              picture anime:
+                              <img src={this.state.places[key].properties.animeImg} alt={this.state.places[key].properties.placeName} />
+                            </p>
+                            <p>
+                              picture anime:
+                              <img src={this.state.places[key].properties.realImg} alt={this.state.places[key].properties.placeName} />
+                            </p>
+                          </div>
+                        )}
+            </div> */}
           {/* MAP-Component */}
-          <Map id="map" details={this.state.places}/>
+          {/* <Map id="map" details={this.state.places}/> */}
+          <NewMap id="map" places={this.state.places}/>
         </div>
       </div>
       </>

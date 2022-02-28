@@ -5,7 +5,7 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 
 import fetchFakeData from "../api/fetchFakeData";
 import Popup from "./Popup";
-import "../Map.css";
+// import "../Map.css";
 
 
 
