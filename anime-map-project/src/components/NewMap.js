@@ -9,7 +9,6 @@ const NewMap = ({places}) => {
     // console.log(places);
 
     const mapContainer = useRef(null);
-    const map = useRef(null);
     const [lng, setLng] = useState(13);
     const [lat, setLat] = useState(52);
     const [zoom, setZoom] = useState(4);
