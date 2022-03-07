@@ -1,6 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
+import ReactDOM from "react-dom";
+
+import Popup from "./Popup";
 
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
 
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg';
 
@@ -9,6 +13,7 @@ const NewMap = ({places}) => {
     // console.log(places);
 
     const mapContainer = useRef(null);
+    const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
     const [lng, setLng] = useState(13);
     const [lat, setLat] = useState(52);
     const [zoom, setZoom] = useState(4);
@@ -98,13 +103,26 @@ const NewMap = ({places}) => {
         // Setze den Cursor auf die Standardeinstellung zurück, wenn sich der Benutzer nicht mehr über einer anklickbaren Funktion befindet
         map.on("mouseleave", "animePlacesLayer", () => {
             map.getCanvas().style.cursor = "";
-        });          
-          
+        });      
+        
+        // Popup hinzufügen, wenn Benutzer auf einen Punkt klickt
+        map.on("click", "animePlacesLayer", e => {
+            if (e.features.length) {
+            const feature = e.features[0];
+            // Popup-Knoten erstellen
+            const popupNode = document.createElement("div");
+            ReactDOM.render(<Popup feature={feature} />, popupNode);
+            // Popup-Knoten hinzufügen
+            popUpRef.current
+                .setLngLat(feature.geometry.coordinates)
+                .setDOMContent(popupNode)
+                .addTo(map);
+            }
+        });
+        //   DEBUG
           console.log("______")
           console.log("Places:")
           console.log(places)
-          console.log("getSource:")
-          console.log(map.getSource("animePlaces"))
           console.log("______")
        
        // Aufräumen
