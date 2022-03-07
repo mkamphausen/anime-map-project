@@ -1,0 +1,20 @@
+{
+  {
+    "id": 0,
+    "name":"NAME",
+    "anime":"TITLE",
+    "longitude": 0,
+    "latitude": 0,
+    "picture_real": "/url",
+    "picture_anime": "/url",
+  }
+  {
+    "id": 0,
+    "name":"NAME",
+    "anime":"TITLE",
+    "longitude": 0,
+    "latitude": 0,
+    "picture_real": "/url",
+    "picture_anime": "/url",
+  }
+}
