@@ -1,13 +1,14 @@
 import React from 'react'
+import "../Popup.css";
 
 const Popup = ({ feature }) => {
   const { id, placeName, animeTitle, animeImg, realImg, description, city } = feature.properties
 
   return (
-    <div id={`popup-${id}`} >
-      <span>Ort</span>
+    <div id={`popup-${id}`} className="popUp" >
+      <span className="header">Ort</span>
       <span>{placeName}{(city? ", " + city : "")}</span>
-      <span>Anime</span>
+      <span className="header">Anime</span>
       <span>{animeTitle}</span>
       <div className="pictures">
         {/* <img src={animeImg} alt="" />
