@@ -29,7 +29,7 @@ const Header = (props)  => (
       >
         <Nav.Link href="#map">Map</Nav.Link>
         <Nav.Link href="#action2">About</Nav.Link>
-        <Nav.Link href="#action3">Login</Nav.Link>
+        <Nav.Link href="#login">Login</Nav.Link>
       </Nav>
       <Form className="d-flex">
         <FormControl
