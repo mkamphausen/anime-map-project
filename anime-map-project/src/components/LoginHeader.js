@@ -5,7 +5,6 @@ import {
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import "./App.css";
 import { auth } from "./firebase-config";
 
 function App() {
@@ -61,6 +60,7 @@ function App() {
           }}
         />
         <input
+          type ="password" name="password"
           placeholder="Password..."
           onChange={(event) => {
             setRegisterPassword(event.target.value);
@@ -70,7 +70,7 @@ function App() {
         <button onClick={register}> Create User</button>
       </div>
 
-      <div>
+      
         <h3> Login </h3>
         <input
           placeholder="Email..."
@@ -79,6 +79,7 @@ function App() {
           }}
         />
         <input
+          type ="password" name="password"
           placeholder="Password..."
           onChange={(event) => {
             setLoginPassword(event.target.value);
@@ -86,7 +87,7 @@ function App() {
         />
 
         <button onClick={login}> Login</button>
-      </div>
+      
 
       <h4> User Logged In: </h4>
       {user?.email}
