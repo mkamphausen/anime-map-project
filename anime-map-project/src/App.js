@@ -3,7 +3,7 @@ import React, { useRef, useEffect } from "react";
 import "./App.css"
 
 //import components
-import NewMap from "./components/NewMap"
+import NewMap from "./components/Map"
 import Header from "./components/Header"
 import Data from "./components/Data"
 //import test data
@@ -31,9 +31,11 @@ class App extends React.Component {
   // function for adding places to the state
   addPlace = place => {
     //1. take copy of existing state
-    const places = {...this.state.places};
+    const places = [...this.state.places];
     //2. Add our new place to that places variable
-    places[`place${Date.now()}`] = place;
+    // places[`place${Date.now()}`] = place;
+    console.log(places);
+    places.push(place);
     //3. set the new places object to state
     this.setState({ places });
   }
@@ -51,7 +53,9 @@ class App extends React.Component {
       <>
       
       <div className="container">
-        <Header/>
+        <Header
+          addPlace={this.addPlace}
+        />
         {/* content */}
         <div className="content">
           <Data 
