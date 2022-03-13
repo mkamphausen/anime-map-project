@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-
+//import components
 import AddplaceForm from './AddPlaceForm';
-
+import LoginHeader from "./LoginHeader"
+//import boostrap
 import { Tabs, Tab, Row, Col, Nav } from 'react-bootstrap';
-
+//import react icons
 import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
 
 const SidebarTab = ({addPlace}) => {
@@ -21,7 +22,7 @@ const SidebarTab = ({addPlace}) => {
                 test1
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
-                test2
+                <LoginHeader/>
             </Tab>
             <Tab eventKey="add" title={<IoDuplicateSharp/>} style={{'flex':'1 0 auto'}}>
                 <AddplaceForm addPlace={addPlace}/>
