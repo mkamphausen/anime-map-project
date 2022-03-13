@@ -6,6 +6,7 @@ import "./App.css"
 import NewMap from "./components/Map"
 import Header from "./components/Header"
 import Data from "./components/Data"
+import LoginHeader from "./components/LoginHeader"
 //import test data
 import samplePlaces from './samplePlaces'
 //bootstrap
@@ -58,6 +59,8 @@ class App extends React.Component {
         />
         {/* content */}
         <div className="content">
+        
+          <LoginHeader/>
           <Data 
             loadSamplePlaces={this.loadSamplePlaces} 
             addPlace={this.addPlace}

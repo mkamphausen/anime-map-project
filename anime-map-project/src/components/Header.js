@@ -9,6 +9,7 @@ import Nav from 'react-bootstrap/Nav';
 import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
+
 const Header = ({addPlace})  => (
   <Navbar bg="light" expand="md">
     <Container fluid>
