@@ -2,12 +2,13 @@ import React, { useState } from "react";
 //import components
 import AddplaceForm from './AddPlaceForm';
 import LoginHeader from "./LoginHeader"
+import Data from "./Data"
 //import boostrap
 import { Tabs, Tab, Row, Col, Nav } from 'react-bootstrap';
 //import react icons
 import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
 
-const SidebarTab = ({addPlace}) => {
+const SidebarTab = ({addPlace, loadSamplePlaces}) => {
     const [key, setKey] = useState('search');
 
     return (
@@ -19,7 +20,7 @@ const SidebarTab = ({addPlace}) => {
         style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', 'align-self':'stretch' }}
         >
             <Tab eventKey="serach" title={<IoSearchSharp/>} style={{'width':'100px','flex':'1 0 auto'}}>
-                test1
+                <Data loadSamplePlaces={loadSamplePlaces}/>
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
                 <LoginHeader/>

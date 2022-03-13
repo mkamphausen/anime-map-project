@@ -54,6 +54,7 @@ class App extends React.Component {
       
       {/* <div className="container"> */}
         <Header
+          loadSamplePlaces={this.loadSamplePlaces}
           addPlace={this.addPlace}
         />
         {/* content */}

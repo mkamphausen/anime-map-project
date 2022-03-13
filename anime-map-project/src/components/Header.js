@@ -10,14 +10,18 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
 
-const Header = ({addPlace})  => (
+const Header = ({addPlace, loadSamplePlaces})  => (
   <Navbar bg="light" expand="md">
     <Container fluid>
     <div className="container">
       <Navbar.Brand href="#">Anime Map Project</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
-        <Sidebar backdrop="false" addPlace={addPlace}/>
+        <Sidebar 
+          backdrop="false" 
+          addPlace={addPlace}
+          loadSamplePlaces={loadSamplePlaces}
+        />
         <Nav
           className="me-auto my-2 my-lg-0"
           style={{ maxHeight: '100px' }}
