@@ -11,7 +11,7 @@ class Data extends React.Component{
         return (
             <div className="inventory">
                 <h2>Data</h2>
-                <AddPlaceForm addPlace={this.props.addPlace}/>
+                {/* <AddPlaceForm addPlace={this.props.addPlace}/> */}
                 <Button variant="info" onClick={this.props.loadSamplePlaces}>import test data</Button>
             </div> 
         );
