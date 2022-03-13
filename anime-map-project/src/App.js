@@ -52,7 +52,7 @@ class App extends React.Component {
     return (
       <>
       
-      <div className="container">
+      {/* <div className="container"> */}
         <Header
           addPlace={this.addPlace}
         />
@@ -86,7 +86,7 @@ class App extends React.Component {
           {/* <Map id="map" details={this.state.places}/> */}
           <NewMap id="map" places={this.state.places}/>
         </div>
-      </div>
+      {/* </div> */}
       </>
     );
   }

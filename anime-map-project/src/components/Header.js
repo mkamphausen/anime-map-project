@@ -13,6 +13,7 @@ import FormControl from 'react-bootstrap/FormControl';
 const Header = ({addPlace})  => (
   <Navbar bg="light" expand="md">
     <Container fluid>
+    <div className="container">
       <Navbar.Brand href="#">Anime Map Project</Navbar.Brand>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
@@ -26,7 +27,7 @@ const Header = ({addPlace})  => (
           <Nav.Link href="#action2">About</Nav.Link>
           <Nav.Link href="#action3">Login</Nav.Link>
         </Nav>
-        <Form className="d-flex">
+        {/* <Form className="d-flex">
           <FormControl
             type="search"
             placeholder="Search"
@@ -34,8 +35,9 @@ const Header = ({addPlace})  => (
             aria-label="Search"
           />
           <Button variant="outline-success">Search</Button>
-        </Form>
+        </Form> */}
       </Navbar.Collapse>
+    </div>
     </Container>
   </Navbar>
 );

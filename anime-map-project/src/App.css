@@ -1,6 +1,6 @@
 .container {
-  margin: auto;
   max-width: 1000px;
-  height: 100%;
   background-color: red;
+  display: flex;
+  flex-direction: row;
 }

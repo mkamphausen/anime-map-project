@@ -67,7 +67,7 @@ const NewMap = ({places}) => {
         map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
         //on load add a source for features and layer to map
         map.on("load", () => {
-
+            map.resize();
             // new features list
             map.addSource("animePlaces", {
                 "type": "geojson",
