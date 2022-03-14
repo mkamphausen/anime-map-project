@@ -2,86 +2,28 @@
 ////https://picsum.photos/400
 
 const samplePlaces =[
-    {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-76.5, 37.5]
-            },
-            "properties": {
-                "title": "Mapbox DC",
-                "marker-symbol": "monument"
-            }
-        }, 
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-76, 37.5]
-            },
-            "properties": {
-                "title": "Mapbox DC",
-                "marker-symbol": "monument"
-            }
-        } ,
-        {
-            "type": "Feature",
-            "geometry": {
-                "type": "Point",
-                "coordinates": [-77, 37.5]
-            },
-            "properties": {
-                "title": "Mapbox DC",
-                "marker-symbol": "monument"
-            }
-        },
-    { 
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [13.409444, 52.520833],
-        },
-            properties: {
-            animeTitle:"Detective Conan",	
-            animeImg:"https://www.detectiveconanworld.com/wiki/images/a/ac/Movie_20_Gin_Berlin.jpg", 
-            realImg:"https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Berlin_-_Berliner_Fernsehturm1.jpg/150px-Berlin_-_Berliner_Fernsehturm1.jpg",
-            placeName:"Fernsehturm",	 
-            city:"Berlin", 
-            country:"GERMANY"
-    },
-  },
-    { 
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [-0.12509050234678804, 51.5010622073421],
-        },
-        properties: {	
-            animeTitle:"Detective Conan",	
-            animeImg:"https://www.detectiveconanworld.com/wiki/images/d/d6/Movie_20_London.jpeg", 
-            realImg:"https://media-cdn.tripadvisor.com/media/photo-s/07/20/bb/d7/parliament-square.jpg",
-            placeName:"Big Ben", 
-            city:"London", 
-            country:"ENGLAND" 
-        },
-    },
-    { 
-        type: 'Feature',
-        geometry: {
-            type: 'Point',
-            coordinates: [-0.454342785250037, 51.47013740427179],
-        },
-        properties: {
-            animeTitle:"Detective Conan",	
-            animeImg:"https://conanwiki.org/images/f/f6/Episode_616-11.png", 
-            realImg:"https://cdn.images.express.co.uk/img/dynamic/1/590x/heathrow-449152.jpg",
-            placeName:"Heathrow", 
-            city:"London", 
-            country:"ENGLAND" 
-        },
-    }
-]
+     { type: 'Feature', geometry: { type: 'Point', coordinates: [-0.12509050234678804,51.5010622073421] }, properties: { animeTitle: 'Detective Conan', placeName: 'Big Ben', animeIMG:'https://www.detectiveconanworld.com/wiki/images/d/d6/Movie_20_London.jpeg', realIMG:'https://media-cdn.tripadvisor.com/media/photo-s/07/20/bb/d7/parliament-square.jpg', tag:'Gebäude', city:'London', country:'ENGLAND' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-0.454342785250037,51.47013740427179] }, properties: { animeTitle: 'Detective Conan', placeName: 'Heathrow', animeIMG:'https://conanwiki.org/images/f/f6/Episode_616-11.png', realIMG:'https://cdn.images.express.co.uk/img/dynamic/1/590x/heathrow-449152.jpg', tag:'Gebäude', city:'London', country:'ENGLAND' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-0.21495088619084077,51.43592474496625] }, properties: { animeTitle: 'Detective Conan', placeName: 'Wimbledon Stadion', animeIMG:'https://conanwiki.org/images/thumb/7/70/Episode_619-6.png/800px-Episode_619-6.png', realIMG:'https://gofargrowclose.com/wp-content/uploads/2016/12/wimbledon-intro.jpg', tag:'Gebäude', city:'London', country:'ENGLAND' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-73.9471093013225,40.828955703885626] }, properties: { animeTitle: 'Detective Conan', placeName: 'NowYork Skyline', animeIMG:'https://www.detectiveconanworld.com/wiki/images/thumb/c/c5/Movie_19_New_York_City.jpg/800px-Movie_19_New_York_City.jpg', realIMG:'https://cdn.getyourguide.com/img/tour/5ca4db0039bf6.jpeg/148.jpg', tag:'Gebäude', city:'NewYork', country:'USA' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [103.86100442783662,1.2848584949047523] }, properties: { animeTitle: 'Detective Conan', placeName: 'Marina Bay Sands Hotel Pool', animeIMG:'https://www.detectiveconanworld.com/wiki/images/thumb/f/f7/Movie_23_Singapore.jpg/800px-Movie_23_Singapore.jpg', realIMG:'https://ak.picdn.net/shutterstock/videos/15847162/thumb/1.jpg', tag:'Gebäude', city:'Singapur', country:'Singapur' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-79.38710890394981,43.64269651604382] }, properties: { animeTitle: 'Detective Conan', placeName: 'Downtown Toronto', animeIMG:'https://www.detectiveconanworld.com/wiki/images/thumb/4/4b/Movie_20_Downtown_Toronto.jpg/800px-Movie_20_Downtown_Toronto.jpg', realIMG:'https://apps-cloud.n-tv.de/img/517593-1353208295000/o/1136/1136/fernsehturm-toronto.jpg', tag:'Gebäude', city:'Toronto', country:'CANADA' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-83.04581408706356,42.33282324810938] }, properties: { animeTitle: 'Detective Conan', placeName: 'Detroit People Mover', animeIMG:'https://drive.google.com/file/d/1EHBNDQqLDFgNKorzkd0TVTaHgMhj6hfU/view?usp=sharing', realIMG:'https://files.structurae.net/files/photos/wikipedia/PeopleMoverDetroit.jpg', tag:'Gebäude', city:'Detroit', country:'USA' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [-0.11936827202537292,51.50244892543723] }, properties: { animeTitle: 'Burn the Witch', placeName: 'BigBen Themse', animeIMG:'https://static.wikia.nocookie.net/bleach/images/6/6b/BTWFFront_London.png/revision/latest/scale-to-width-down/1000?cb=20200827114022&path-prefix=en', realIMG:'https://image.shutterstock.com/image-photo/panoramic-view-river-thames-houses-600w-159814850.jpg', tag:'Gebäude', city:'London', country:'ENGLAND' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [24.79333435196241,46.21936111934537] }, properties: { animeTitle: 'Fate/Apocrypha', placeName: 'Romania Sighisoara', animeIMG:'https://i.imgur.com/ViWpDzj.png', realIMG:'https://i.imgur.com/pdBuDhW.jpeg', tag:'Gebäude', city:'Schäßburg', country:'RUMÄNIEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [26.087221852040855,44.42756094299312] }, properties: { animeTitle: 'Fate/Apocrypha', placeName: 'Romania Parliament', animeIMG:'https://imgur.com/gBKKd2R', realIMG:'https://imgur.com/qD2Bjqu', tag:'Gebäude', city:'Bukarest', country:'RUMÄNIEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [121.84573512803598,25.11841832617277] }, properties: { animeTitle: 'Spirited Away', placeName: 'Jiufen', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Jiufen', country:'TAIWAN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [145.95757799657406,-17.652111548995414] }, properties: { animeTitle: 'Castle in the Sky', placeName: 'Paronella Park', animeIMG:'x', realIMG:'x', tag:'Natur', city:'Queensland', country:'AUSTRALIEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [18.070597364119354,59.32495880146913] }, properties: { animeTitle: 'Kiki’s Delivery Service', placeName: 'Gamla Stan', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Stockholm', country:'SCHWEDEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [130.65951101535518,30.387054223464244] }, properties: { animeTitle: 'Princess Mononoke', placeName: 'Yakushima', animeIMG:'x', realIMG:'x', tag:'Natur', city:'Yakushima', country:'JAPAN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [18.293480579889312,57.63746987961379] }, properties: { animeTitle: 'Kiki’s Delivery Service', placeName: 'Visby', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Visby', country:'SCHWEDEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [16.17159175937997,43.02171262634636] }, properties: { animeTitle: 'Porco Rosso', placeName: 'Stiniva', animeIMG:'x', realIMG:'x', tag:'Natur', city:'Vis Island', country:'KROATIEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [147.4931275397101,-42.027444408152206] }, properties: { animeTitle: 'Kiki’s Delivery Service', placeName: 'Ross Bakery', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Tasmania', country:'AUSTRALIEN' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [7.3485285064894015,48.15423632395538] }, properties: { animeTitle: 'Howl’s Moving Castle', placeName: 'Colmar', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Colmar', country:'FRANKREICH' } },
+{ type: 'Feature', geometry: { type: 'Point', coordinates: [130.4643569172049,32.16917182340275] }, properties: { animeTitle: 'Nausicaa and the Valley of the Wind', placeName: 'Minamata', animeIMG:'x', realIMG:'x', tag:'Gebäude', city:'Minamata', country:'JAPAN' } },
+    
+  ]
 
-
+// lang lat nach google Kopie immer! tauschen, sonst zeigt der nix an 
 
 export default samplePlaces;

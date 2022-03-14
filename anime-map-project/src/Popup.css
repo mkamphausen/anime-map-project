@@ -1,7 +1,23 @@
-.popUp {
-  display: flex;
-  flex-direction: column;
+.mapboxgl-popup-content{
+  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
+  background: #fff; /* noch ans Farblayout anzupassen */
+  padding: 20px;
+  width: 350px;
+  max-height: fit-content;
+  border-radius: 5px;
+  position: absolute;
 }
-.header {
-  font-weight: bold;
-}
+
+   #animeIMG {
+    align-content: center;
+    float: inherit;
+    width: 350px;
+    height: 196.785px;
+    border: 1px solid rgb(0,239,254);
+} 
+  #realIMG {
+    align-content: center;
+    width: 350px;
+    height: 196.785px;
+    border: 1px solid rgb(0,239,254);
+} 
