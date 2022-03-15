@@ -6,12 +6,6 @@ import { Offcanvas, Button} from 'react-bootstrap';
 
 import { IoOptionsSharp } from "react-icons/io5";
 
-const options = {
-    // name: 'Enable body scrolling',
-    scroll: true,
-    backdrop: false,
-}
-
 const Sidebar = ({ name, addPlace }) => {
     const [show, setShow] = useState(false);
   
@@ -20,7 +14,7 @@ const Sidebar = ({ name, addPlace }) => {
   
     return (
       <>
-        <Button  variant="primary" onClick={show == false? handleShow : handleClose}>
+        <Button  variant="primary" onClick={show === false? handleShow : handleClose}>
         <IoOptionsSharp/>
       </Button>
 
