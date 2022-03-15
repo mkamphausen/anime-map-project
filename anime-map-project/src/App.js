@@ -6,7 +6,7 @@ import NewMap from "./components/Map"
 import Header from "./components/Header"
 import Data from "./components/Data"
 //import data
-import { getPlaces, receavedPlaces } from './lib/placeHandler';
+import { getPlaces } from './lib/placeHandler';
 import samplePlaces from './samplePlaces'
 //bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -20,11 +20,6 @@ class App extends React.Component {
     places: {},
     anime:{}
   };  
-  
-  addPlaces() {
-    getPlaces()
-    console.log(receavedPlaces)
-  }
 
   // function for adding places to the state
   addPlace = place => {
@@ -54,7 +49,6 @@ class App extends React.Component {
           <Data 
             loadSamplePlaces={this.loadSamplePlaces} 
             addPlace={this.addPlace}
-            addPlaces={this.addPlaces}
           />
           <NewMap id="map" places={this.state.places}/>
         </div>
