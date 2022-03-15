@@ -1,5 +1,9 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
+import 'firebase/database';
+
+import { getFirestore } from 'firebase/firestore/lite';
+import { IoPlayForwardCircleSharp } from "react-icons/io5";
 
 const firebaseConfig = {
     apiKey: "AIzaSyAwEK01MqpJd1vWhpC6rxVoOqwd6g7kV8Y",
@@ -15,3 +19,5 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 export const auth = getAuth(app);
+
+export const db = getFirestore(app);

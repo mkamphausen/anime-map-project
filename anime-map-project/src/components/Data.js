@@ -1,9 +1,9 @@
 import React from "react";
 
-//import components
-import AddPlaceForm from "./AddPlaceForm";
 //bootstrap imports
 import Button from 'react-bootstrap/Button';
+//import library
+import { getPlaces } from '../lib/placeHandler';
 
 class Data extends React.Component{
 
@@ -11,8 +11,8 @@ class Data extends React.Component{
         return (
             <div className="inventory">
                 <h2>Data</h2>
-                {/* <AddPlaceForm addPlace={this.props.addPlace}/> */}
                 <Button variant="info" onClick={this.props.loadSamplePlaces}>import test data</Button>
+                <Button variant="info" onClick={this.props.addPlaces}>get Data from server</Button>
             </div> 
         );
     }
