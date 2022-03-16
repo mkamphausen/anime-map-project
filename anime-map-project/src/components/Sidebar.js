@@ -6,7 +6,7 @@ import { Offcanvas, Button} from 'react-bootstrap';
 
 import { IoOptionsSharp } from "react-icons/io5";
 
-const Sidebar = ({ name, addPlace }) => {
+const Sidebar = ({ addPlace, places, animeCollection }) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -23,7 +23,11 @@ const Sidebar = ({ name, addPlace }) => {
           <Offcanvas.Title>Offcanvas</Offcanvas.Title>
         </Offcanvas.Header> */}
         <Offcanvas.Body>
-          <SidebarTab addPlace={addPlace}/>
+          <SidebarTab 
+          addPlace={addPlace}
+          places={places}
+          animeCollection={animeCollection}  
+          />
         </Offcanvas.Body>
       </Offcanvas>
       </>

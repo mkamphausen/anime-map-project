@@ -1,5 +1,5 @@
 import {db} from '../base'
-import { collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs, addDoc } from 'firebase/firestore';
 
 const placesCollectionRef = collection(db, 'places');
 
@@ -36,4 +36,18 @@ function placesIntoGeoJson(fetchedData){
         GeoJsonifiedData.push(GJPlace);
     });
     return GeoJsonifiedData;
+}
+
+//returns true, if place coords already exist
+export function placeAlreadyExists(placeCollection, newPlaceCoords){
+    return placeCollection.some(place => place.geometry.coordinates.every(coord => {
+        return newPlaceCoords.includes(coord)
+    })
+)}
+
+//create new place in db
+export const createPlace = async (place) => {
+    //await placesCollectionRef.doc(placeID).set(place)
+    // await db.collection('places').doc(placeID).set(place)
+    await addDoc(placesCollectionRef, place )
 }

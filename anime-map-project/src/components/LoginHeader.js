@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <button class="login-with-google-btn" onClick={signInWithGoogle}>
+      <button className="login-with-google-btn" onClick={signInWithGoogle}>
         Sign in with Google
       </button>
       <button onClick={logout}> Sign Out </button>

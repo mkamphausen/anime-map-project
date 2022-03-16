@@ -13,10 +13,16 @@ code {
 }
 
 .map-container {
-  height: 100vh;
+  height: 98vh;
 }
 
 .popUp {
   display: flex;
   flex-direction: column;
 }
+
+/* #sidebar_tabs {
+  display: "flex";
+  flex-direction: "row";
+  justify-content: "space-evenly";
+} */

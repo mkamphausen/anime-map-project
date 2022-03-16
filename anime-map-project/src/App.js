@@ -2,9 +2,8 @@ import React, {useEffect} from "react";
 import "./App.css"
 
 //import components
-import NewMap from "./components/Map"
+import Map from "./components/Map"
 import Header from "./components/Header"
-import Data from "./components/TestData"
 //import data
 import { getPlaces } from './lib/placeHandler';
 import { getAnime } from './lib/animeHandler';
@@ -45,30 +44,28 @@ class App extends React.Component {
     this.setState({ anime });
   }
 
+  //load data from db
   componentDidMount() {
     this.fetchPlaces();
     this.fetchAnime();
   }
 
   // funtcion for loading sample data into state
-  loadSamplePlaces = () => {
-    this.setState({places: samplePlaces});
-  }
+  // loadSamplePlaces = () => {
+  //   this.setState({places: samplePlaces});
+  // }
 
   render(){
     return (
       <>
         <Header
-          loadSamplePlaces={this.loadSamplePlaces}
           addPlace={this.addPlace}
+          places={this.state.places} 
+          animeCollection={this.state.anime}
         />
         {/* content */}
         <div className="content">
-          <Data 
-            loadSamplePlaces={this.loadSamplePlaces} 
-            addPlace={this.addPlace}
-          />
-          <NewMap id="map" places={this.state.places} animeCollection={this.state.anime}/>
+          <Map id="map" places={this.state.places} animeCollection={this.state.anime}/>
         </div>
       </>
     );

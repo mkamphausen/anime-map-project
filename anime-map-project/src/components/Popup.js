@@ -43,9 +43,6 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
               )
             )};
       </select>
-
-      
-
       <div>
         <div>
           <span>{name}{(town? ", " + town : "")}</span>

@@ -10,7 +10,7 @@ import Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 
 
-const Header = ({addPlace, loadSamplePlaces})  => (
+const Header = ({addPlace, places, animeCollection})  => (
   <Navbar bg="light" expand="md">
     <Container fluid>
     <div className="container">
@@ -20,7 +20,8 @@ const Header = ({addPlace, loadSamplePlaces})  => (
         <Sidebar 
           backdrop="false" 
           addPlace={addPlace}
-          loadSamplePlaces={loadSamplePlaces}
+          places={places}
+          animeCollection={animeCollection}
         />
         <Nav
           className="me-auto my-2 my-lg-0"
