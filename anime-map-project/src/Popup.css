@@ -1,4 +1,4 @@
-.mapboxgl-popup-content{
+.popUp{
   font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
   background: #f8f9fa; /* noch ans Farblayout anzupassen */
   padding: 10px;

@@ -12,13 +12,12 @@ const Popup = ({ feature }) => {
       <span className="header">Anime: {animeTitle}</span>
       <div className="pictures">
         {/* <img src={animeImg} alt="" />
-        <img src={realImg} alt="" /> 
-        <img id="animeIMG" src={animeIMG} onerror="this.src='https://i.pinimg.com/736x/9c/bb/09/9cbb09a97b37e57cf337d38be9064e6d--manga-girl-manga-anime.jpg';"/>
-        <img id="realIMG" src={realIMG} onerror="this.src='https://i.pinimg.com/736x/9c/bb/09/9cbb09a97b37e57cf337d38be9064e6d--manga-girl-manga-anime.jpg';"/>
-        */}
+        <img src={realImg} alt="" /> */}
+        <img id="animeIMG" src={{animeIMG}? {animeIMG}:"..\noIMG.jpg"} />
+        <img id="realIMG" src={{realIMG}? {realIMG}:"..\noIMG.jpg"} />
+        
 
-      <img src={animeIMG}  />  
-      <img src={realIMG}  />  
+
 
 
        
