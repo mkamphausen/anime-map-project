@@ -1,23 +1,26 @@
 .mapboxgl-popup-content{
   font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
   background: #f8f9fa; /* noch ans Farblayout anzupassen */
-  padding: 20px;
-  width: 350px;
+  padding: 10px;
+  width: 370px;
   max-height: fit-content;
   border-radius: 5px;
   position: absolute;
 }
+
 
    #animeIMG {
     align-content: center;
     float: inherit;
     width: 350px;
     height: 196.785px;
+    border: 1px solid #f8f9fa;
  
 } 
   #realIMG {
     align-content: center;
     width: 350px;
     height: 196.785px;
+    border: 1px solid #f8f9fa;
   
 } 
