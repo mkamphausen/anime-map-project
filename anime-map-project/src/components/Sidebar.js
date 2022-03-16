@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 import SidebarTab from './SidebarTab';
 
 import { Offcanvas, Button} from 'react-bootstrap';
@@ -19,9 +18,8 @@ const Sidebar = ({ addPlace, places, animeCollection }) => {
       </Button>
 
       <Offcanvas  show={show} onHide={handleClose} backdrop={false}>
-        {/* <Offcanvas.Header>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
-        </Offcanvas.Header> */}
+        <Offcanvas.Header closeButton>
+        </Offcanvas.Header> 
         <Offcanvas.Body>
           <SidebarTab 
           addPlace={addPlace}
