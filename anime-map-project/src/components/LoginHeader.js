@@ -1,98 +1,42 @@
+import "../App.css";
 import { useState } from "react";
-import {
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
-  onAuthStateChanged,
-  signOut,
-} from "firebase/auth";
 import { auth } from "../firebase-config";
+import {  GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
 
 function App() {
-  const [registerEmail, setRegisterEmail] = useState("");
-  const [registerPassword, setRegisterPassword] = useState("");
-  const [loginEmail, setLoginEmail] = useState("");
-  const [loginPassword, setLoginPassword] = useState("");
-
+  const provider = new GoogleAuthProvider();
   const [user, setUser] = useState({});
 
   onAuthStateChanged(auth, (currentUser) => {
     setUser(currentUser);
   });
 
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth,
-        registerEmail,
-        registerPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
+  const signInWithGoogle = () => {
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        console.log(result);
+  
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginEmail,
-        loginPassword
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
-
-  const logout = async () => {
-    await signOut(auth);
+  const logout = () => {
+    signOut(auth);
+    localStorage.clear();
+    console.log("Logged out");
   };
 
   return (
     <div className="App">
-      <div>
-        <h3> Register User </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setRegisterEmail(event.target.value);
-          }}
-        />
-        <input
-          type ="password" name="password"
-          placeholder="Password..."
-          onChange={(event) => {
-            setRegisterPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={register}> Create User</button>
-      </div>
-
-      
-        <h3> Login </h3>
-        <input
-          placeholder="Email..."
-          onChange={(event) => {
-            setLoginEmail(event.target.value);
-          }}
-        />
-        <input
-          type ="password" name="password"
-          placeholder="Password..."
-          onChange={(event) => {
-            setLoginPassword(event.target.value);
-          }}
-        />
-
-        <button onClick={login}> Login</button>
-      
-
-      <h4> User Logged In: </h4>
-      {user?.email}
-
+      <button class="login-with-google-btn" onClick={signInWithGoogle}>
+        Sign in with Google
+      </button>
       <button onClick={logout}> Sign Out </button>
+      <h4>{user?.displayName}</h4>
+      <h4>{user?.email}</h4>
+      <img src={user?.photoURL} />
     </div>
   );
 }
