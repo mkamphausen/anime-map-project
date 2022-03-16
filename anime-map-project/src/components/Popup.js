@@ -11,7 +11,7 @@ import {Overlay, Button, Tooltip} from 'react-bootstrap'
 const Popup = ({ feature, linkedAnimeCollection }) => {
   //get feature information
   const appearances = filterAppearancesForPlace(linkedAnimeCollection, feature);
-  const { name, realPictureUrl, town } = feature.properties;
+  const {id, placeName, animeTitle, animeIMG, realIMG, city, country } = feature.properties;
   const {coordinates} = feature.geometry
 
   //create hooks to set lokal state for popup content - fill with first found anime content by default
@@ -43,24 +43,35 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
               )
             )};
       </select>
-      <div>
-        <div>
-          <span>{name}{(town? ", " + town : "")}</span>
-          {/* <img src={realPictureUrl} alt={name} /> */}
+
+
+      
+
+     <div id={`popup-${id}`} className="popUp" >
+      <span className="header"><h5>{placeName}{(city? ", " + city : "")}</h5></span>
+      <span className="header">Anime: {animeTitle}</span>
+      <div className="pictures">
+        {/* <img src={animeImg} alt="" />
+        <img src={realImg} alt="" /> */}
+      <img id="animeIMG" src={{animeIMG}? {animeIMG}:"..\noIMG.jpg"} />
+      <img id="realIMG" src={{realIMG}? {realIMG}:"..\noIMG.jpg"} />
         </div>
-        <div>
-          <span className="header">Anime</span>
-          <span>{title}</span>
-          {/* <img src={animePictureUrl} alt="" /> */}
-        </div>
-        <div className="description">
+
+      <div className="description">
         <span className="header">Episode</span>
           {episode}
           <span className="header">Beschreibung</span>
           {description}
         </div> 
         <span>{coordinates[0]} | {coordinates[1]}</span> 
+
+
+       
       </div>
+
+
+
+
     </> 
   )
 }
