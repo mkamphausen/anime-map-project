@@ -14,3 +14,5 @@ export const getAnime = async () => {
     // console.log(receavedPlaces);
     return  receavedAnime;
 }
+
+//add anime
