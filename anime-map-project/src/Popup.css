@@ -1,6 +1,6 @@
 .mapboxgl-popup-content{
   font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
-  background: #FFFDFA; /* noch ans Farblayout anzupassen */
+  background: #f8f9fa; /* noch ans Farblayout anzupassen */
   padding: 20px;
   width: 350px;
   max-height: fit-content;

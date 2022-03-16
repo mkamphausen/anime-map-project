@@ -60,9 +60,9 @@ const NewMap = ({places}) => {
         const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [lng, lat],
-        zoom: zoom
-        });
+        center: [145.950,42.42],
+        zoom: 2.5
+      });
         // add navigation control (zoom buttons)
         map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
         //on load add a source for features and layer to map
