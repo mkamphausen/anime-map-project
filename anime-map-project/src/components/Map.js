@@ -3,12 +3,15 @@ import ReactDOM from "react-dom";
 
 import Popup from "./Popup";
 
+import {filterAnimeForPlace, filterAppearancesForPlace} from '../lib/FilterHandler'
+
+
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
 
 //'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg'
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZnBzdTkxbXg1MndwdDhpMGw2cG90In0.skh6k364eLpFbgBIuOjerw';
 
-const NewMap = ({places}) => {
+const NewMap = ({places, animeCollection}) => {
 
     // console.log(places);
 
@@ -56,7 +59,6 @@ const NewMap = ({places}) => {
 
     //initialize map
     useEffect(() => {
-        // if (map.current) return; // initialize map only once
         const map = new mapboxgl.Map({
         container: mapContainer.current,
         style: 'mapbox://styles/mapbox/streets-v11',
@@ -111,7 +113,7 @@ const NewMap = ({places}) => {
             const feature = e.features[0];
             // Popup-Knoten erstellen
             const popupNode = document.createElement("div");
-            ReactDOM.render(<Popup feature={feature} />, popupNode);
+            ReactDOM.render(<Popup feature={feature} linkedAnimeCollection={filterAnimeForPlace(animeCollection, feature)} />, popupNode);
             // Popup-Knoten hinzufügen
             popUpRef.current
                 .setLngLat(feature.geometry.coordinates)
@@ -119,11 +121,10 @@ const NewMap = ({places}) => {
                 .addTo(map);
             }
         });
-        //   DEBUG
-          console.log("______")
-          console.log("Places:")
-          console.log(places)
-          console.log("______")
+        // //   DEBUG
+        //   console.log(animeCollection)
+        //   console.log("______")
+
        
        // Aufräumen
         return () => map.remove();

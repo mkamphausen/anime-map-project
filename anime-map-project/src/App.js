@@ -4,9 +4,10 @@ import "./App.css"
 //import components
 import NewMap from "./components/Map"
 import Header from "./components/Header"
-import Data from "./components/Data"
+import Data from "./components/TestData"
 //import data
 import { getPlaces } from './lib/placeHandler';
+import { getAnime } from './lib/animeHandler';
 import samplePlaces from './samplePlaces'
 //bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -19,7 +20,9 @@ class App extends React.Component {
   state = {
     places: {},
     anime:{}
-  };  
+  };
+
+  
 
   // function for adding places to the state
   addPlace = place => {
@@ -30,6 +33,21 @@ class App extends React.Component {
     places.push(place);
     //3. set the new places object to state
     this.setState({ places });
+  }
+  
+  fetchPlaces = async () => {
+    const places = await getPlaces();
+    this.setState({ places });
+  }
+
+  fetchAnime = async () => {
+    const anime = await getAnime();
+    this.setState({ anime });
+  }
+
+  componentDidMount() {
+    this.fetchPlaces();
+    this.fetchAnime();
   }
 
   // funtcion for loading sample data into state
@@ -50,7 +68,7 @@ class App extends React.Component {
             loadSamplePlaces={this.loadSamplePlaces} 
             addPlace={this.addPlace}
           />
-          <NewMap id="map" places={this.state.places}/>
+          <NewMap id="map" places={this.state.places} animeCollection={this.state.anime}/>
         </div>
       </>
     );
