@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 //import components
 import AddplaceForm from './AddPlaceForm';
-// import LoginHeader from "./LoginHeader"
-import Data from "./Data"
+import LoginHeader from "./LoginHeader"
+import Data from "./TestData"
 //import boostrap
 import { Tabs, Tab, Row, Col, Nav } from 'react-bootstrap';
 //import react icons
@@ -23,7 +23,7 @@ const SidebarTab = ({addPlace, loadSamplePlaces}) => {
                 <Data loadSamplePlaces={loadSamplePlaces}/>
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
-                {/* <LoginHeader/> */}
+                <LoginHeader/>
             </Tab>
             <Tab eventKey="add" title={<IoDuplicateSharp/>} style={{'flex':'1 0 auto'}}>
                 <AddplaceForm addPlace={addPlace}/>
