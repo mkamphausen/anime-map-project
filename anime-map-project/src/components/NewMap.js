@@ -35,6 +35,7 @@ const NewMap = ({places, animeCollection}) => {
     }}
     style={{width: '100%', height: '98vh'}}
     mapStyle="mapbox://styles/mapbox/streets-v9"
+    mapboxApiAccessToken='pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZnBzdTkxbXg1MndwdDhpMGw2cG90In0.skh6k364eLpFbgBIuOjerw'
     >
       <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />

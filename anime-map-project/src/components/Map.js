@@ -85,7 +85,7 @@ const Map = ({places, animeCollection}) => {
               type: "symbol",
               layout: {
                 // https://labs.mapbox.com/maki-icons "marker-15"
-                "icon-image": '../logo.svg',
+                "icon-image": 'marker-15',
                 // "sprite": "mapbox://sprites/mapbox/bright-v8"
                 // "icon-padding": 1,
                 // "icon-allow-overlap": true
