@@ -121,22 +121,14 @@ const Map = ({places, animeCollection}) => {
                 .addTo(map);
             }
         });
-        // //   DEBUG
-        //   console.log(animeCollection)
-        //   console.log("______")
-
-       
        // Aufräumen
         return () => map.remove();
-
     },); // eslint-disable-line react-hooks/exhaustive-deps
-
     return (
         <div>
         <div ref={mapContainer} className="map-container" />
         </div>
         );
-
 }
 
 export default Map;
