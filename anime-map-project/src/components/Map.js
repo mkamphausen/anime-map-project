@@ -84,7 +84,7 @@ const NewMap = ({places}) => {
               type: "symbol",
               layout: {
                 // https://labs.mapbox.com/maki-icons
-                "icon-image": "marker-15",
+                "icon-image": "anime-map-project\src\pBelle.svg",
                 "icon-padding": 1,
                 "icon-allow-overlap": true
               }
