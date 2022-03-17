@@ -62,7 +62,7 @@ const NewMap = ({places}) => {
         style: 'mapbox://styles/mapbox/streets-v11',
         center: [145.950,42.42],
         zoom: 2.5
-      });
+        });
         // add navigation control (zoom buttons)
         map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
         //on load add a source for features and layer to map
@@ -83,16 +83,14 @@ const NewMap = ({places}) => {
               source: "animePlaces",
               type: "symbol",
               layout: {
-              "background-image": "url('https://cdn.glitch.global/8e23d8b9-c743-4719-aff3-140e553ab8f7/thumbnails%2FBelle.png?1643698762900')",
-              "background-size": "cover",
-              width: "50px",
-              height: "50px",
-              "border-radius": "50%",
-              cursor: "pointer"
+                // https://labs.mapbox.com/maki-icons
+                "icon-image": "marker-15",
+                "icon-padding": 1,
+                "icon-allow-overlap": true
               }
             });
             // map.setLayoutPropperty("animePlacesLayer", )
-          
+          });
 
 
          // Ändere den Cursor in einen Zeiger, wenn der Benutzer mit der Maus über eine anklickbare Funktion fährt
