@@ -45,8 +45,8 @@ class App extends React.Component {
         />
         {/* content */}
         <div className="content">
-          <NewMap places={this.state.places} animeCollection={this.state.anime}/>
-          {/* <Map id="map" places={this.state.places} animeCollection={this.state.anime}/> */}
+          {/* <NewMap places={this.state.places} animeCollection={this.state.anime}/> */}
+          <Map id="map" places={this.state.places} animeCollection={this.state.anime}/>
         </div>
       </>
     );

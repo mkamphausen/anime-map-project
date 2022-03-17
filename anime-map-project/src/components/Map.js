@@ -57,11 +57,13 @@ const Map = ({places, animeCollection}) => {
                         }   
     ]
 
+    //mapbox://styles/mapbox/light-v10
+    //mapbox://styles/mapsws2122/cl0sl8ax900dr14qih7q409yh
     //initialize map
     useEffect(() => {
         const map = new mapboxgl.Map({
         container: mapContainer.current,
-        style: 'mapbox://styles/mapsws2122/cl0sl8ax900dr14qih7q409yh',
+        style: 'mapbox://styles/mapbox/light-v10',
         center: [lng, lat],
         zoom: zoom
         });
