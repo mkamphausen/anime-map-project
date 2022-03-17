@@ -82,13 +82,14 @@ const NewMap = ({places}) => {
               id: "animePlacesLayer",
               source: "animePlaces",
               type: "symbol",
+              layout: {
               "background-image": "url('https://cdn.glitch.global/8e23d8b9-c743-4719-aff3-140e553ab8f7/thumbnails%2FBelle.png?1643698762900')",
               "background-size": "cover",
               width: "50px",
               height: "50px",
               "border-radius": "50%",
               cursor: "pointer"
-              
+              }
             });
             // map.setLayoutPropperty("animePlacesLayer", )
           
