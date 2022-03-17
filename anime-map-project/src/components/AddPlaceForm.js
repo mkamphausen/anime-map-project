@@ -49,6 +49,7 @@ class AddPlaceForm extends React.Component {
     }
     // refresh the form
     event.currentTarget.reset();
+    window.location.reload();
   }
 /**
  * creates a new place, add new appearance to anime
@@ -103,6 +104,7 @@ class AddPlaceForm extends React.Component {
     }
     // refresh the form
     event.currentTarget.reset();
+    window.location.reload();
   };
 
   handler = event => {
