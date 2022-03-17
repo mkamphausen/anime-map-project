@@ -38,6 +38,9 @@ function placesIntoGeoJson(fetchedData){
                 "realPictureUrl":element?.realPictureUrl,
                 "tags":element?.tags,
                 "town":element?.town,
+                'marker-color': '#3bb2d0',
+                'marker-size': 'large',
+                'marker-symbol': 'rocket'
             }
         }
         GeoJsonifiedData.push(GJPlace);

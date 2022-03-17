@@ -3,7 +3,7 @@ import "./App.css"
 
 //import components
 import Map from "./components/Map"
-import NewMap from "./components/NewMap"
+// import NewMap from "./components/NewMap"
 import Header from "./components/Header"
 //import data
 import { getPlaces } from './lib/placeHandler';

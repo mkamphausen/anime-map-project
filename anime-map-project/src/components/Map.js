@@ -19,7 +19,7 @@ const Map = ({places, animeCollection}) => {
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
     const [lng, setLng] = useState(13);
     const [lat, setLat] = useState(52);
-    const [zoom, setZoom] = useState(4);
+    const [zoom, setZoom] = useState(3);
 
     const externalTestData =[
         {
@@ -84,14 +84,17 @@ const Map = ({places, animeCollection}) => {
             map.addLayer({
               id: "animePlacesLayer",
               source: "animePlaces",
-              type: "symbol",
-              layout: {
-                // https://labs.mapbox.com/maki-icons "marker-15"
-                "icon-image": 'marker-15',
-                // "sprite": "mapbox://sprites/mapbox/bright-v8"
-                // "icon-padding": 1,
-                // "icon-allow-overlap": true
-              }
+              type: "circle",
+            //   layout: {
+            //     // https://labs.mapbox.com/maki-icons "marker-15"
+            //     "icon-image": 'marker-15',
+            //     // "icon-padding": 10,
+            //     // "icon-allow-overlap": true
+            //   },
+                paint:{
+                    'circle-radius':5,
+                    'circle-color':'#ff0000',
+                }
             });
             // map.setLayoutPropperty("animePlacesLayer", )
           });
