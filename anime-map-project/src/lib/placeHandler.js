@@ -38,7 +38,7 @@ function placesIntoGeoJson(fetchedData){
     return GeoJsonifiedData;
 }
 
-//returns true, if place coords already exist
+/*returns true, if specific place coords already exist in given placesCollection*/
 export function placeAlreadyExists(placeCollection, newPlaceCoords){
     return placeCollection.some(place => place.geometry.coordinates.every(coord => {
         return newPlaceCoords.includes(coord)
@@ -46,8 +46,8 @@ export function placeAlreadyExists(placeCollection, newPlaceCoords){
 )}
 
 //create new place in db
-export const createPlace = async (place) => {
+export const createPlace = place => {
     //await placesCollectionRef.doc(placeID).set(place)
     // await db.collection('places').doc(placeID).set(place)
-    await addDoc(placesCollectionRef, place )
+    return addDoc(placesCollectionRef, place )
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import {createAnime , animeAlreadyExists} from '../lib/animeHandler'
+import {createAnime , animeAlreadyExists, addAppearanceByID} from '../lib/animeHandler'
 import { createPlace, placeAlreadyExists } from '../lib/placeHandler'
 
 class AddPlaceForm extends React.Component {
@@ -27,18 +27,16 @@ class AddPlaceForm extends React.Component {
   addAnime = event =>{
     // stop the form from submitting
     event.preventDefault();
-    // check if created place & anime already exist
-    if(this.animeTitleRef.current.value !== ''){
+    // check if new title has been entered
+    if(this.animeTitleRef.current.value === ''){
       alert('Bitte gib einen Titel ein')
     }else{
+      //check if entered title already exists
       if(!animeAlreadyExists(this.props.animeCollection, this.animeTitleRef.current.value)){
         //add new anime to db
         createAnime(this.animeTitleRef.current.value)
+
         // push to state
-        const anime = {
-          title: this.animeTitleRef.current.value,
-          appearences:[]
-        }
         this.props.animeCollection.push({
           title: this.animeTitleRef.current.value,
           appearences:[]
@@ -51,40 +49,40 @@ class AddPlaceForm extends React.Component {
     event.currentTarget.reset();
   }
 
-  createData = event => {
+
+  createData = async (event) => {
     // stop the form from submitting
     event.preventDefault();
-    // check if created place & anime already exist
-    if(placeAlreadyExists(this.props.places, [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)])){
-      alert('jo, müssen wir mal schauen')
-      return;
-    }
+    // check if anime has been selected
     if(this.selectedAnimeID=== ''){
       alert('Bitte Anime auswählen')
-      return;
-    }
-    //define place and match refs for values
-    const place = {
-        coordinates: [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)],   
-        realImg: this.realImgRef.current.value,
-        placeName: this.placeNameRef.current.value,
-        town: this.townRef.current.value,
-        linkedAnime: [this.selectedAnimeID]
+    }else{
+      if(placeAlreadyExists(this.props.places, [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)])){
+        //add new appaerance to selected anime
+      }else{
+        //define place and match refs for values
+        const place = {
+            coordinates: [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)],   
+            realImg: this.realImgRef.current.value,
+            placeName: this.placeNameRef.current.value,
+            town: this.townRef.current.value,
+            linkedAnime: [this.selectedAnimeID]
+          }
+        //add new place to db
+        const newDocRef = await createPlace(place)
+        const newPlaceID = newDocRef.id;
+        //create new appearence
+        const appearence = {
+            animePictureUrl: this.animeImgRef.current.value,
+            description: this.descRef.current.value,
+            episode: this.episodeRef.current.value,
+            placeID:newPlaceID
+          }
+        //add appearence to selected anime
+        addAppearanceByID(this.selectedAnimeID, appearence)
+        console.log(newPlaceID)
       }
-    //add new place to db
-    createPlace(place)
-
-    //define anime and match refs for values
-    const anime ={
-      title: this.animeTitleRef.current.value,
-      appearences:{
-        animePictureUrl: this.animeImgRef.current.value,
-        description: this.descRef.current.value,
-        episode: this.episodeRef.current.value,
-        placeID:''
-      }
     }
-
     // refresh the form
     event.currentTarget.reset();
   };
@@ -92,7 +90,6 @@ class AddPlaceForm extends React.Component {
   handler = event => {
     this.selectedAnimeID = event.target.value;
   }
-
 
   render() {
     return (
@@ -105,13 +102,13 @@ class AddPlaceForm extends React.Component {
               type="text" 
               placeholder="Anime title" 
             />
-            <button type="submit">+ Add Place</button>
+            <button type="submit">+ Add Anime</button>
           </form>
         </section>
         ---
         <section>
           <select name="animeSelect" id="animeSelect" onChange={this.handler}>
-              <option value='' key='default' selected>Bitte Anime auswählen</option>
+              <option value='' key='default' defaultValue>Bitte Anime auswählen</option>
               {this.props.animeCollection.map((anime) => (
                   <option value={anime.id} key={anime.id}>{anime.title}</option>
                 )
@@ -123,7 +120,8 @@ class AddPlaceForm extends React.Component {
                 name="name" 
                 ref={this.placeNameRef} 
                 type="text" 
-                placeholder="place name" 
+                placeholder="place name*" 
+                required
               />
               <input 
                 name="city" 
@@ -143,13 +141,15 @@ class AddPlaceForm extends React.Component {
                 name="longitude"
                 ref={this.longitudeRef}
                 type="text"
-                placeholder="longitude"
+                placeholder="longitude*"
+                required
               />
               <input
                 name="latitude"
                 ref={this.latitudeRef}
                 type="text"
-                placeholder="latitude"
+                placeholder="latitude*"
+                required
               />
             </p>
             <p className="anime_info">
