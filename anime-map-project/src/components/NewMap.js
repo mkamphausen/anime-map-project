@@ -10,7 +10,7 @@ const layerStyle = {
   type: 'circle',
   paint: {
     'circle-radius': 10,
-    'circle-color': '#007cbf'
+    'circle-color': '#007fff'
   }
 };
 
