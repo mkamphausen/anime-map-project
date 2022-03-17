@@ -18,14 +18,17 @@ export const getAnime = async () => {
     return  receavedAnime;
 }
 /**
- * checks if a specific anime title already exists @param animeCollection, @param title
+ * checks if a specific anime title already exists 
+ * @param animeCollection 
+ * @param title
  **/
 export function animeAlreadyExists(animeCollection, newTitle){
         return animeCollection.some(anime => anime.title === newTitle);
 }
 
 /**
- * create new anime in db @param anime title
+ * create new anime in db 
+ * @param animeTitle
  **/
 export const createAnime = async (title) => {
     await addDoc(animeCollectionRef,{
@@ -34,7 +37,9 @@ export const createAnime = async (title) => {
     } )
 }
 /**
- * add appearance to an anime doc @param animeID @param appearance
+ * add appearance to an anime doc 
+ * @param animeID 
+ * @param appearance
  **/
 export const addAppearanceByID = (refference, appearance) => {
     const animeRef = doc(animeCollectionRef, refference)

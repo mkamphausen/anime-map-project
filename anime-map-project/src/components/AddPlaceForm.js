@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {createAnime , animeAlreadyExists, addAppearanceByID} from '../lib/animeHandler'
-import { createPlace, placeAlreadyExists } from '../lib/placeHandler'
+import { createPlace, placeAlreadyExists, addAnimelinkToPlace, searchPlaceByCoords } from '../lib/placeHandler'
 
 class AddPlaceForm extends React.Component {
   //place refs
@@ -23,7 +23,10 @@ class AddPlaceForm extends React.Component {
   static propTypes = {
     addPlace: PropTypes.func
   };
- 
+ /**
+  * creates a new anime on submit
+  * @param {*} event 
+  */
   addAnime = event =>{
     // stop the form from submitting
     event.preventDefault();
@@ -35,7 +38,6 @@ class AddPlaceForm extends React.Component {
       if(!animeAlreadyExists(this.props.animeCollection, this.animeTitleRef.current.value)){
         //add new anime to db
         createAnime(this.animeTitleRef.current.value)
-
         // push to state
         this.props.animeCollection.push({
           title: this.animeTitleRef.current.value,
@@ -48,8 +50,10 @@ class AddPlaceForm extends React.Component {
     // refresh the form
     event.currentTarget.reset();
   }
-
-
+/**
+ * creates a new place, add new appearance to anime
+ * @param {*} event 
+ */
   createData = async (event) => {
     // stop the form from submitting
     event.preventDefault();
@@ -57,8 +61,22 @@ class AddPlaceForm extends React.Component {
     if(this.selectedAnimeID=== ''){
       alert('Bitte Anime auswählen')
     }else{
-      if(placeAlreadyExists(this.props.places, [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)])){
+      //check if there is already a place with entered coordinates
+      const alreadExistingPlace = searchPlaceByCoords(this.props.places, [parseFloat(this.longitudeRef.current.value), parseFloat(this.latitudeRef.current.value)])
+    console.log(alreadExistingPlace)
+      if(alreadExistingPlace){
         //add new appaerance to selected anime
+        addAnimelinkToPlace(alreadExistingPlace.properties.id, this.selectedAnimeID)
+        alert('Vielen Dank')
+        //create new appearence using the existing placeID
+        const appearence = {
+          animePictureUrl: this.animeImgRef.current.value,
+          description: this.descRef.current.value,
+          episode: this.episodeRef.current.value,
+          placeID:alreadExistingPlace.properties.id
+        }
+         //add appearence to selected anime
+          addAppearanceByID(this.selectedAnimeID, appearence)
       }else{
         //define place and match refs for values
         const place = {
@@ -71,7 +89,7 @@ class AddPlaceForm extends React.Component {
         //add new place to db
         const newDocRef = await createPlace(place)
         const newPlaceID = newDocRef.id;
-        //create new appearence
+        //create new appearence using the new placeID
         const appearence = {
             animePictureUrl: this.animeImgRef.current.value,
             description: this.descRef.current.value,

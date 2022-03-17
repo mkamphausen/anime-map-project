@@ -4,9 +4,9 @@ import AddplaceForm from './AddPlaceForm';
 import LoginHeader from "./LoginHeader"
 import Search from "./Search"
 //import boostrap
-import { Tabs, Tab, Row, Col, Nav, } from 'react-bootstrap';
+import { Tabs, Tab } from 'react-bootstrap';
 //import react icons
-import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp, IoCloseSharp } from "react-icons/io5";
+import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
 
 const SidebarTab = ({addPlace, places, animeCollection }) => {
     const [key, setKey] = useState('search');

@@ -2,12 +2,7 @@ import React from 'react';
 
 import Sidebar from './Sidebar';
 
-import Button from 'react-bootstrap/Button';
-import Navbar from 'react-bootstrap/Navbar';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
+import { Navbar, Container, Nav  } from 'react-bootstrap';
 
 
 const Header = ({addPlace, places, animeCollection})  => (
@@ -32,15 +27,6 @@ const Header = ({addPlace, places, animeCollection})  => (
           <Nav.Link href="#action2">About</Nav.Link>
           <Nav.Link href="#action3">Login</Nav.Link>
         </Nav>
-        {/* <Form className="d-flex">
-          <FormControl
-            type="search"
-            placeholder="Search"
-            className="me-2"
-            aria-label="Search"
-          />
-          <Button variant="outline-success">Search</Button>
-        </Form> */}
       </Navbar.Collapse>
     </div>
     </Container>
