@@ -10,7 +10,7 @@ import "../Popup.css";
 const Popup = ({ feature, linkedAnimeCollection }) => {
   //get feature information
   const appearances = filterAppearancesForPlace(linkedAnimeCollection, feature);
-  const {id, placeName, animeTitle, animeIMG, realIMG, city, country } = feature.properties;
+  const {id, placeName, animeTitle, realImg, city, country } = feature.properties;
   const {coordinates} = feature.geometry
 
   //create hooks to set lokal state for popup content - fill with first found anime content by default
@@ -43,17 +43,15 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
             )};
       </select>
 
-
-      
-
      <div id={`popup-${id}`} className="popUp" >
       <span className="header"><h5>{placeName}{(city? ", " + city : "")}</h5></span>
       <span className="header">Anime: {animeTitle}</span>
       <div className="pictures">
         {/* <img src={animeImg} alt="" />
         <img src={realImg} alt="" /> */}
-      <img id="animeIMG" src={{animeIMG}? {animeIMG}:"..\noIMG.jpg"} />
-      <img id="realIMG" src={{realIMG}? {realIMG}:"..\noIMG.jpg"} />
+        {/* animeIMG? animeIMG:"..\noIMG.jpg" */}
+      <img id="animeIMG" src={animePictureUrl} />
+      <img id="realIMG" src={realImg} />
         </div>
 
       <div className="description">

@@ -28,7 +28,10 @@ const SidebarTab = ({addPlace, places, animeCollection }) => {
         style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', }}
         >
             <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
-                <Search></Search>
+                <Search
+                    places={places}
+                    animeCollection={animeCollection}
+                />
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
                 <LoginHeader/>
