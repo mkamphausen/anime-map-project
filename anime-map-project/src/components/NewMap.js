@@ -39,10 +39,10 @@ const NewMap = ({places, animeCollection}) => {
       <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
       </Source>
-    {/* {places.map(place => (
-      <Marker key={place.properties.placeID}>
-
-      <Marker/>
+      {/* {places.map(place =>(
+        <Marker key={place.properties.placeID} latitude={place.geometrie.coordinates[0]} longitude={place.geometrie.coordinates[1]}>
+          <div>Test</div>
+        </Marker>
       ))} */}
     </Map>
   );
