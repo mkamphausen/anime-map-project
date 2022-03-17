@@ -1,6 +1,7 @@
+//import react & external tools
 import React from "react";
 import PropTypes from "prop-types";
-
+//import helper functions
 import {createAnime , animeAlreadyExists, addAppearanceByID} from '../lib/animeHandler'
 import { createPlace, addAnimelinkToPlace, searchPlaceByCoords } from '../lib/placeHandler'
 

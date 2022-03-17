@@ -1,8 +1,9 @@
+//import react & external tools
 import React, { useState } from 'react';
+//import components
 import SidebarTab from './SidebarTab';
-
+//import bootstrap & styles
 import { Offcanvas, Button} from 'react-bootstrap';
-
 import { IoOptionsSharp } from "react-icons/io5";
 
 const Sidebar = ({ addPlace, places, animeCollection }) => {

@@ -1,11 +1,10 @@
+//import react & external tools
 import React, {useState, useRef} from 'react'
-import "../Popup.css";
-
-//import data helper
+//import helper functions
 import { filterAppearancesForPlace } from '../lib/FilterHandler'
-
-//Import Bootstrap
+//Import bootstrap & styles
 import {Overlay, Button, Tooltip} from 'react-bootstrap'
+import "../Popup.css";
 
 //recieves an array of all anime, which are linked to the specififc feature(place)
 const Popup = ({ feature, linkedAnimeCollection }) => {

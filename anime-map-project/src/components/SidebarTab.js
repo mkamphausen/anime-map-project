@@ -1,11 +1,11 @@
+//import react & external tools
 import React, { useState } from "react";
 //import components
 import AddplaceForm from './AddPlaceForm';
 import LoginHeader from "./LoginHeader"
 import Search from "./Search"
-//import boostrap
+//import boostrap & styles
 import { Tabs, Tab } from 'react-bootstrap';
-//import react icons
 import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
 //import Auth
 import { auth } from "../firebase-config";

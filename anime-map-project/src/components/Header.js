@@ -1,9 +1,9 @@
+//import react & external tools
 import React from 'react';
-
+//import components
 import Sidebar from './Sidebar';
-
+//import bootstrap & styles
 import { Navbar, Container, Nav  } from 'react-bootstrap';
-
 
 const Header = ({addPlace, places, animeCollection})  => (
   <Navbar bg="light" expand="md">

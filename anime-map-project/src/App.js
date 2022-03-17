@@ -1,15 +1,15 @@
+//import react & external tools
 import React, {useEffect} from "react";
-import "./App.css"
-
 //import components
 import Map from "./components/Map"
 // import NewMap from "./components/NewMap"
 import Header from "./components/Header"
-//import data
+//import helper functions
 import { getPlaces } from './lib/placeHandler';
 import { getAnime } from './lib/animeHandler';
-//bootstrap
+//bootstrap & styles
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css"
 
 class App extends React.Component {
 

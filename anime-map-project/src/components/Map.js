@@ -1,12 +1,13 @@
+//import react & external tools
 import React, { useRef, useEffect, useState } from 'react';
 import ReactDOM from "react-dom";
-
-import Popup from "./Popup";
-
-import {filterAnimeForPlace, filterAppearancesForPlace} from '../lib/FilterHandler'
-
-
 import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+//import components
+import Popup from "./Popup";
+//import helper functions
+import {filterAnimeForPlace, filterAppearancesForPlace} from '../lib/FilterHandler'
+//import bootstrap
+
 
 //'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg'
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZnBzdTkxbXg1MndwdDhpMGw2cG90In0.skh6k364eLpFbgBIuOjerw';
@@ -20,42 +21,6 @@ const Map = ({places, animeCollection}) => {
     const [lng, setLng] = useState(13);
     const [lat, setLat] = useState(52);
     const [zoom, setZoom] = useState(3);
-
-    const externalTestData =[
-        {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [-76.5, 37.5]
-                            },
-                            "properties": {
-                                "title": "Mapbox DC",
-                                "marker-symbol": "monument"
-                            }
-                        }, 
-                        {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [-76, 37.5]
-                            },
-                            "properties": {
-                                "title": "Mapbox DC",
-                                "marker-symbol": "monument"
-                            }
-                        } ,
-                        {
-                            "type": "Feature",
-                            "geometry": {
-                                "type": "Point",
-                                "coordinates": [-77, 37.5]
-                            },
-                            "properties": {
-                                "title": "Mapbox DC",
-                                "marker-symbol": "monument"
-                            }
-                        }   
-    ]
 
     //mapbox://styles/mapbox/light-v10
     //mapbox://styles/mapsws2122/cl0sl8ax900dr14qih7q409yh
