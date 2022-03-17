@@ -22,9 +22,14 @@ function App() {
   };
 
   const logout = () => {
-    signOut(auth);
+    if(user) {
+      signOut(auth);
     localStorage.clear();
     console.log("Logged out");
+    } else {
+      alert("You're not logged in.")
+    }
+    
   };
 
   return (
