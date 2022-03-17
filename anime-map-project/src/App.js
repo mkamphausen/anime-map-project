@@ -2,7 +2,8 @@ import React, {useEffect} from "react";
 import "./App.css"
 
 //import components
-import Map from "./components/Map"
+// import Map from "./components/Map"
+import NewMap from "./components/NewMap"
 import Header from "./components/Header"
 //import data
 import { getPlaces } from './lib/placeHandler';
@@ -44,7 +45,8 @@ class App extends React.Component {
         />
         {/* content */}
         <div className="content">
-          <Map id="map" places={this.state.places} animeCollection={this.state.anime}/>
+          <NewMap places={this.state.places} animeCollection={this.state.anime}/>
+          {/* <Map id="map" places={this.state.places} animeCollection={this.state.anime}/> */}
         </div>
       </>
     );

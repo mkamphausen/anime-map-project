@@ -78,17 +78,17 @@ const Map = ({places, animeCollection}) => {
                   "features": places
                 }            
             });
-
             // add layer and reference to features-list
             map.addLayer({
               id: "animePlacesLayer",
               source: "animePlaces",
               type: "symbol",
               layout: {
-                // https://labs.mapbox.com/maki-icons
-                "icon-image": "marker-15",
-                "icon-padding": 1,
-                "icon-allow-overlap": true
+                // https://labs.mapbox.com/maki-icons "marker-15"
+                "icon-image": '../logo.svg',
+                // "sprite": "mapbox://sprites/mapbox/bright-v8"
+                // "icon-padding": 1,
+                // "icon-allow-overlap": true
               }
             });
             // map.setLayoutPropperty("animePlacesLayer", )

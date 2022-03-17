@@ -1,123 +1,39 @@
-import React, { PureComponent } from 'react';
-import ReactMapGL, { Marker } from 'react-map-gl';
-import Geocoder from 'react-mapbox-gl-geocoder';
-import { Container, Col, Row, Button } from 'reactstrap';
+import  React, {useState} from 'react';
+import Map, {Source, Layer} from 'react-map-gl';
 
-const mapStyle = {
-    width: '100%',
-    height: 600
-}
-
-const mapboxApiKey = 'MAPBOX_API_KEY'
-
-const params = {
-    country: "ca"
-}
-
-const CustomMarker = ({index, marker}) => {
-  return (
-    <Marker
-      longitude={marker.longitude}
-      latitude={marker.latitude}>
-      <div className="marker">
-        <span><b>{index + 1}</b></span>
-      </div>
-    </Marker>
-  )
+const layerStyle = {
+  id: 'point',
+  type: 'circle',
+  paint: {
+    'circle-radius': 10,
+    'circle-color': '#007cbf'
+  }
 };
 
+const NewMap = ({places, animeCollection}) => {
 
-class MapView extends PureComponent {
+  console.log(places)
+  const geojson = {
+    type: 'FeatureCollection',
+    features: places
+  };
+  const [viewport, setViewport] = React.useState();
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      viewport: {
-        latitude: 45.50884,
-        longitude: -73.58781,
-        zoom: 15
-      },
-      tempMarker: null,
-      markers:[]
-    };
-
-  }
-
-  onSelected = (viewport, item) => {
-      this.setState({
-        viewport,
-        tempMarker: {
-          name: item.place_name,
-          longitude: item.center[0],
-          latitude: item.center[1]
-        }
-      })
-  }
-
-  add = () => {
-    var { tempMarker } = this.state
-
-    this.setState(prevState => ({
-        markers: [...prevState.markers, tempMarker],
-        tempMarker: null
-    }))
-  }
-
-  render() {
-    const { viewport, tempMarker, markers } = this.state;
-    return(
-      <Container fluid={true}>
-        <Row>
-          <Col><h2>Mapbox Tutorial</h2></Col>
-        </Row>
-        <Row className="py-4">
-          <Col xs={2}>
-            <Geocoder
-                mapboxApiAccessToken={mapboxApiKey}
-                onSelected={this.onSelected}
-                viewport={viewport}
-                hideOnSelect={true}
-                value=""
-                queryParams={params}
-            />
-          </Col>
-          <Col>
-           <Button color="primary" onClick={this.add}>Add</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <ReactMapGL
-              mapboxApiAccessToken={mapboxApiKey}
-              mapStyle="mapbox://styles/mapbox/streets-v11"
-              {...viewport}
-              {...mapStyle}
-              onViewportChange={(viewport) => this.setState({viewport})}
-            >
-              { tempMarker &&
-                <Marker
-                  longitude={tempMarker.longitude}
-                  latitude={tempMarker.latitude}>
-                  <div className="marker temporary-marker"><span></span></div>
-                </Marker>
-              }
-              {
-                this.state.markers.map((marker, index) => {
-                  return(
-                    <CustomMarker
-                      key={`marker-${index}`}
-                      index={index}
-                      marker={marker}
-                    />
-                  )
-                })
-              }
-            </ReactMapGL>
-          </Col>
-        </Row>
-      </Container>
-   );
-  }
+  return (
+    <Map 
+    initialViewState={{
+      longitude: 1,
+      latitude: 52,
+      zoom: 6
+    }}
+    style={{width: '100%', height: '98vh'}}
+    mapStyle="mapbox://styles/mapbox/streets-v9"
+    >
+      <Source id="my-data" type="geojson" data={geojson}>
+        <Layer {...layerStyle} />
+      </Source>
+    </Map>
+  );
 }
 
-export default MapView;
+export default NewMap;
