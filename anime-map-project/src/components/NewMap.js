@@ -1,5 +1,9 @@
 import  React, {useState} from 'react';
-import Map, {Source, Layer} from 'react-map-gl';
+import Map, { Popup, Marker, Source, Layer} from 'react-map-gl';
+import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-loader-syntax
+
+//'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg'
+mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZnBzdTkxbXg1MndwdDhpMGw2cG90In0.skh6k364eLpFbgBIuOjerw';
 
 const layerStyle = {
   id: 'point',
@@ -10,6 +14,8 @@ const layerStyle = {
   }
 };
 
+//<Popup feature={feature} linkedAnimeCollection={filterAnimeForPlace(animeCollection, feature)} />
+
 const NewMap = ({places, animeCollection}) => {
 
   console.log(places)
@@ -18,13 +24,14 @@ const NewMap = ({places, animeCollection}) => {
     features: places
   };
   const [viewport, setViewport] = React.useState();
+  const [showPopup, setShowPopup] = React.useState(true);
 
   return (
     <Map 
     initialViewState={{
       longitude: 1,
-      latitude: 52,
-      zoom: 6
+      latitude: 51,
+      zoom: 3
     }}
     style={{width: '100%', height: '98vh'}}
     mapStyle="mapbox://styles/mapbox/streets-v9"
@@ -32,6 +39,11 @@ const NewMap = ({places, animeCollection}) => {
       <Source id="my-data" type="geojson" data={geojson}>
         <Layer {...layerStyle} />
       </Source>
+    {/* {places.map(place => (
+      <Marker key={place.properties.placeID}>
+
+      <Marker/>
+      ))} */}
     </Map>
   );
 }
