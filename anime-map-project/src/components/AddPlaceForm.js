@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import {createAnime , animeAlreadyExists, addAppearanceByID} from '../lib/animeHandler'
-import { createPlace, placeAlreadyExists, addAnimelinkToPlace, searchPlaceByCoords } from '../lib/placeHandler'
+import { createPlace, addAnimelinkToPlace, searchPlaceByCoords } from '../lib/placeHandler'
 
 class AddPlaceForm extends React.Component {
   //place refs
@@ -12,6 +12,7 @@ class AddPlaceForm extends React.Component {
   latitudeRef = React.createRef();
   countryRef = React.createRef();
   townRef = React.createRef();
+  tagRef = React.createRef();
   //anime refs
   animeTitleRef = React.createRef();
   animeImgRef = React.createRef();
@@ -85,7 +86,8 @@ class AddPlaceForm extends React.Component {
             realImg: this.realImgRef.current.value,
             placeName: this.placeNameRef.current.value,
             town: this.townRef.current.value,
-            linkedAnime: [this.selectedAnimeID]
+            linkedAnime: [this.selectedAnimeID],
+            tag: [this.tagRef]
           }
         //add new place to db
         const newDocRef = await createPlace(place)
@@ -103,12 +105,16 @@ class AddPlaceForm extends React.Component {
       }
     }
     // refresh the form
+    alert('Vielen Dank')
     event.currentTarget.reset();
-    window.location.reload();
+    // window.location.reload();
   };
 
   handler = event => {
     this.selectedAnimeID = event.target.value;
+  }
+  handleRadioChange = event => {
+    this.tagRef = event.target.value;
   }
 
   render() {
@@ -156,6 +162,12 @@ class AddPlaceForm extends React.Component {
                 placeholder="country" 
               />
             </p>
+            <div>
+            <input type="radio" id="building" name="tag" value="building" onChange={this.handleRadioChange}/>
+            <label>Gebäude</label>
+            <input type="radio" id="nature" name="tag" value="nature" onChange={this.handleRadioChange}/>
+            <label>Natur</label>
+            </div>
             <p className="coordinates">
               <input
                 name="longitude"

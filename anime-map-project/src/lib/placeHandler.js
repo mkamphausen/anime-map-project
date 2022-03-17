@@ -77,7 +77,6 @@ export const addAnimelinkToPlace = (placeID, animeID) => {
     })
 }
 /**
- * 
  * @param {*} placeCollection 
  * @param {*} coords 
  * @returns 
