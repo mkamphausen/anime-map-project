@@ -11,7 +11,7 @@ import noIMG from '../noIMG.jpg';
 const Popup = ({ feature, linkedAnimeCollection }) => {
   //get feature information
   const appearances = filterAppearancesForPlace(linkedAnimeCollection, feature);
-  const {id, name, realPictureUrl, city, country } = feature.properties;
+  const {id, name, realPictureUrl, town, country } = feature.properties;
   const {coordinates} = feature.geometry
 
   //create hooks to set lokal state for popup content - fill with first found anime content by default
@@ -37,16 +37,16 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
 
   return (
     <>
+
+     <div id={`popup-${id}`} className="popUp" >
       <select name="animeSelect" id="animeSelect" onChange={handler}>
             {linkedAnimeCollection.map((anime) => (
                 <option value={anime.id} key={anime.id}>{anime.title}</option>
               )
             )};
       </select>
-
-     <div id={`popup-${id}`} className="popUp" >
-      <span className="header"><h5>{name}{(city? ", " + city : "")}</h5></span>
-      <span className="header">Anime: {title}</span>
+      <span className="header"><h5>{name? name + ", " : "" }{(town? town : "")} {country? " | ": ""} {country}</h5></span>
+      {/* <span className="header">Anime: {title}</span> */}
       <div className="pictures">
         {/* <img src={animeImg} alt="" />
         <img src={realImg} alt="" /> */}
