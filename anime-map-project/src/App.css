@@ -1,6 +1,7 @@
 .container {
-  margin: auto;
-  max-width: 1000px;
-  height: 100%;
-  background-color: rgb(209, 248, 171);
+  max-width: 1500px;
+  /* background-color: #f6f6f4; */
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }

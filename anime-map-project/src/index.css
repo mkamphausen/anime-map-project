@@ -11,12 +11,24 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+.header {
+  background-color: #f4f4f2;
+}
+#view {
+  background-color: #f4f4f2;
+}
 
 .map-container {
-  height: 600px;
+  height: 93.5vh;
 }
 
 .popUp {
   display: flex;
   flex-direction: column;
 }
+
+/* #sidebar_tabs {
+  display: "flex";
+  flex-direction: "row";
+  justify-content: "space-evenly";
+} */

@@ -1,33 +1,83 @@
+//import react & external tools
 import React, { useState } from "react";
-
+//import components
 import AddplaceForm from './AddPlaceForm';
+import LoginHeader from "./LoginHeader"
+import Search from "./Search"
+import About from "./About"
+//import boostrap & styles
+import { Tabs, Tab } from 'react-bootstrap';
+import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp, IoInformationSharp } from "react-icons/io5";
+//import Auth
+import { auth } from "../firebase-config";
+import { onAuthStateChanged } from "firebase/auth";
 
-import { Tabs, Tab, Row, Col, Nav } from 'react-bootstrap';
-
-import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
-
-const SidebarTab = ({addPlace}) => {
+const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID  }) => {
     const [key, setKey] = useState('search');
+    const [user, setUser] = useState({});
 
+    onAuthStateChanged(auth, (currentUser) => {
+        setUser(currentUser);
+    });
+    if (user) {
     return (
         <Tabs
         id="controlled-tab-example"
         activeKey={key}
         onSelect={(k) => setKey(k)}
         className="mb-3"
-        style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', 'align-self':'stretch' }}
+        style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', }}
         >
-            <Tab eventKey="serach" title={<IoSearchSharp/>} style={{'width':'100px','flex':'1 0 auto'}}>
-                test1
+            <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
+                <Search
+                    filter={filter}
+                    animeCollection={animeCollection}
+                    updateFilterBuildings = {updateFilterBuildings}
+                    updatefilterNature = {updatefilterNature}
+                    updatefilterAnimeID = {updatefilterAnimeID}
+                />
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
-                test2
+                <LoginHeader/>
+            </Tab>
+            <Tab eventKey="about" title={<IoInformationSharp/>} style={{'flex':'1 0 auto'}}>
+                    <About></About>
             </Tab>
             <Tab eventKey="add" title={<IoDuplicateSharp/>} style={{'flex':'1 0 auto'}}>
-                <AddplaceForm addPlace={addPlace}/>
-            </Tab>
+                <AddplaceForm 
+                places={places}
+                animeCollection={animeCollection}
+                />
+            </Tab>    
         </Tabs>
     );
+    } else {
+        return (
+        <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+        style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', }}
+        >
+            <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
+                <Search
+                    filter={filter}
+                    animeCollection={animeCollection}
+                    updateFilterBuildings = {updateFilterBuildings}
+                    updatefilterNature = {updatefilterNature}
+                    updatefilterAnimeID = {updatefilterAnimeID}
+                />
+            </Tab>
+            <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
+                <LoginHeader/>
+            </Tab>
+            <Tab eventKey="about" title={<IoInformationSharp/>} style={{'flex':'1 0 auto'}}>
+                <About/>
+            </Tab>
+        </Tabs>  
+        );
+    }
 }
 
 export default SidebarTab;
