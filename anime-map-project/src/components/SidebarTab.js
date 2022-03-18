@@ -18,7 +18,7 @@ const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, up
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
-    if (true) {
+    if (user) {
     return (
         <Tabs
         id="controlled-tab-example"
@@ -48,6 +48,28 @@ const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, up
         </Tabs>
     );
     } else {
+        return (
+        <Tabs
+        id="controlled-tab-example"
+        activeKey={key}
+        onSelect={(k) => setKey(k)}
+        className="mb-3"
+        style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', }}
+        >
+            <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
+                <Search
+                    filter={filter}
+                    animeCollection={animeCollection}
+                    updateFilterBuildings = {updateFilterBuildings}
+                    updatefilterNature = {updatefilterNature}
+                    updatefilterAnimeID = {updatefilterAnimeID}
+                />
+            </Tab>
+            <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
+                <LoginHeader/>
+            </Tab>
+        </Tabs>  
+        );
     }
 }
 
