@@ -9,9 +9,9 @@ const Header = ({ filter, places, animeCollection, updateFilterBuildings, update
   <Navbar className='header' expand="md">
     <Container fluid>
     <div className="container">
-      <Navbar.Brand href="#">Anime Map Project</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
+      <Navbar.Brand href="#">        
+        Anime Map Project
+      </Navbar.Brand>
         <Sidebar
           backdrop="false"
           filter = {filter} 
@@ -21,14 +21,6 @@ const Header = ({ filter, places, animeCollection, updateFilterBuildings, update
           updatefilterNature = {updatefilterNature}
           updatefilterAnimeID = {updatefilterAnimeID}
         />
-        <Nav
-          className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-          navbarScroll
-        >
-          <Nav.Link href="#map">Map</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
     </div>
     </Container>
   </Navbar>
