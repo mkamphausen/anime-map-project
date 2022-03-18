@@ -1,5 +1,6 @@
 //import react & external tools
 import React from "react";
+import { Button, Form, } from "react-bootstrap";
 import PropTypes from "prop-types";
 //import helper functions
 import {createAnime , animeAlreadyExists, addAppearanceByID} from '../lib/animeHandler'
@@ -122,41 +123,44 @@ class AddPlaceForm extends React.Component {
     return (
       <div>
         <section>
-          <form className="createAnime" onSubmit={this.addAnime}>
-            <input 
+          <Form className="createAnime" onSubmit={this.addAnime}>
+            <Form.Group>
+            <Form.Control 
               name="title" 
               ref={this.animeTitleRef} 
               type="text" 
               placeholder="Anime title" 
             />
-            <button type="submit">+ Add Anime</button>
-          </form>
+            <Button type="submit">+ Add Anime</Button>
+            </Form.Group>
+          </Form>
         </section>
-        ---
+        <br/>
         <section>
-          <select name="animeSelect" id="animeSelect" onChange={this.handler}>
-              <option value='' key='default' defaultValue>Bitte Anime auswählen</option>
+          <Form.Select name="animeSelect" id="animeSelect" onChange={this.handler}>
+              <option value='' key='default' defaultValue>Please choose an anime</option>
               {this.props.animeCollection.map(anime => (
                   <option value={anime.id} key={anime.id}>{anime.title}</option>
                 )
               )};
-          </select>
-          <form className="createPlace" onSubmit={this.createData}>
+          </Form.Select>
+          <Form className="createPlace" onSubmit={this.createData}>
+            <Form.Group>
             <p className="location">
-              <input 
+              <Form.Control 
                 name="name" 
                 ref={this.placeNameRef} 
                 type="text" 
                 placeholder="place name*" 
                 required
               />
-              <input 
+              <Form.Control 
                 name="city" 
                 ref={this.townRef} 
                 type="text" 
                 placeholder="City or area" 
               />
-              <input 
+              <Form.Control 
                 name="country" 
                 ref={this.countryRef} 
                 type="text" 
@@ -165,19 +169,19 @@ class AddPlaceForm extends React.Component {
             </p>
             <div>
             <input type="radio" id="building" name="tag" value="building" onChange={this.handleRadioChange}/>
-            <label>Gebäude</label>
+            <label>Building</label><br/>
             <input type="radio" id="nature" name="tag" value="nature" onChange={this.handleRadioChange}/>
-            <label>Natur</label>
+            <label>Natural Site</label>
             </div>
             <p className="coordinates">
-              <input
+              <Form.Control
                 name="longitude"
                 ref={this.longitudeRef}
                 type="text"
                 placeholder="longitude*"
                 required
               />
-              <input
+              <Form.Control
                 name="latitude"
                 ref={this.latitudeRef}
                 type="text"
@@ -186,21 +190,21 @@ class AddPlaceForm extends React.Component {
               />
             </p>
             <p className="anime_info">
-              <input 
+              <Form.Control 
                 name="episode" 
                 ref={this.episodeRef} 
                 type="text" 
-                placeholder="Episode oder Film"
+                placeholder="Episode or Movie"
               />
             </p>
             <p className="pictures">
-              <input
+              <Form.Control
                 name="animeImg"
                 ref={this.animeImgRef}
                 type="text"
                 placeholder="Image from the anime"
               />
-              <input
+              <Form.Control
                 name="realImg"
                 ref={this.realImgRef}
                 type="text"
@@ -208,10 +212,11 @@ class AddPlaceForm extends React.Component {
               />
             </p>
             <p>
-            <textarea name="desc" ref={this.descRef} placeholder="Desc" />
+            <Form.Control as ="textarea" name="desc" ref={this.descRef} placeholder="Desc" />
             </p>
-            <button type="submit">+ Add Place</button>
-          </form>
+            <Button type="submit">+ Add Place</Button>
+            </Form.Group>
+          </Form>
         </section>  
       </div>
     );
