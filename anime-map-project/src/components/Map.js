@@ -5,22 +5,27 @@ import mapboxgl from '!mapbox-gl'; // eslint-disable-line import/no-webpack-load
 //import components
 import Popup from "./Popup";
 //import helper functions
-import {filterAnimeForPlace, filterAppearancesForPlace} from '../lib/FilterHandler'
-//import bootstrap
-
+import {filterAnimeForPlace, filterPlaces, filterAppearancesForPlace} from '../lib/FilterHandler'
 
 //'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZmZmNDIxbWh1Mm9vM3ZkZXd1eDE2In0.9kz-0YHPkldjju3dKzd5Bg'
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFwc3dzMjEyMiIsImEiOiJja3l1ZnBzdTkxbXg1MndwdDhpMGw2cG90In0.skh6k364eLpFbgBIuOjerw';
 
-const Map = ({places, animeCollection}) => {
-
-    // console.log(places);
+const Map = ({filter, places, animeCollection}) => {
 
     const mapContainer = useRef(null);
     const popUpRef = useRef(new mapboxgl.Popup({ offset: 15 }));
     const [lng, setLng] = useState(13);
     const [lat, setLat] = useState(52);
     const [zoom, setZoom] = useState(3);
+    const [filterBuildings, setFilterBuildings] = useState(filter.buildings);
+    const [filterNature, setFilterNature] = useState(filter.nature);
+    const [filterAnimeID, setFilterAnimeID] = useState(filter.animeID);
+
+    function updateFilter() {
+        setFilterBuildings(filter.buildings)
+        setFilterNature(filter.nature)
+        setFilterAnimeID(filter.animeID)
+    }
 
     //mapbox://styles/mapbox/light-v10
     //mapbox://styles/mapsws2122/cl0sl8ax900dr14qih7q409yh
@@ -32,6 +37,16 @@ const Map = ({places, animeCollection}) => {
         center: [lng, lat],
         zoom: zoom
         });
+
+        updateFilter()
+        
+        console.log( filterNature, filterBuildings, filterAnimeID)
+
+        const filteredPlaces = filterPlaces(places, filterBuildings, filterNature, filterAnimeID)
+        
+        console.log('filtered:')
+        console.log(filteredPlaces)
+
         // add navigation control (zoom buttons)
         map.addControl(new mapboxgl.NavigationControl(), "bottom-right");
         //on load add a source for features and layer to map
@@ -42,7 +57,7 @@ const Map = ({places, animeCollection}) => {
                 "type": "geojson",
                 "data": {
                   "type": "FeatureCollection",
-                  "features": places
+                  "features": filteredPlaces
                 }            
             });
             // add layer and reference to features-list
@@ -96,6 +111,11 @@ const Map = ({places, animeCollection}) => {
     },); // eslint-disable-line react-hooks/exhaustive-deps
     return (
         <div>
+        <div>
+            <h1>{filterBuildings}</h1>
+            <h1>{filterBuildings}</h1>
+            <h1>{filterBuildings}</h1>
+        </div>
         <div ref={mapContainer} className="map-container" />
         </div>
         );

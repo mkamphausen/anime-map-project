@@ -6,7 +6,7 @@ import SidebarTab from './SidebarTab';
 import { Offcanvas, Button} from 'react-bootstrap';
 import { IoOptionsSharp } from "react-icons/io5";
 
-const Sidebar = ({ addPlace, places, animeCollection }) => {
+const Sidebar = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID  }) => {
     const [show, setShow] = useState(false);
   
     const handleClose = () => setShow(false);
@@ -22,10 +22,13 @@ const Sidebar = ({ addPlace, places, animeCollection }) => {
         <Offcanvas.Header closeButton>
         </Offcanvas.Header> 
         <Offcanvas.Body>
-          <SidebarTab 
-          addPlace={addPlace}
-          places={places}
-          animeCollection={animeCollection}  
+          <SidebarTab
+            filter = {filter}
+            places={places}
+            animeCollection={animeCollection} 
+            updateFilterBuildings = {updateFilterBuildings}
+            updatefilterNature = {updatefilterNature}
+            updatefilterAnimeID = {updatefilterAnimeID} 
           />
         </Offcanvas.Body>
       </Offcanvas>

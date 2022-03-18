@@ -36,11 +36,8 @@ function placesIntoGeoJson(fetchedData){
                 "linkedAnime": element?.linkedAnime,
                 "name":element?.name,
                 "realPictureUrl":element?.realPictureUrl,
-                "tags":element?.tags,
+                "tags":element?.tag,
                 "town":element?.town,
-                'marker-color': '#3bb2d0',
-                'marker-size': 'large',
-                'marker-symbol': 'rocket'
             }
         }
         GeoJsonifiedData.push(GJPlace);

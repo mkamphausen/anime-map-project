@@ -136,7 +136,7 @@ class AddPlaceForm extends React.Component {
         <section>
           <select name="animeSelect" id="animeSelect" onChange={this.handler}>
               <option value='' key='default' defaultValue>Bitte Anime auswählen</option>
-              {this.props.animeCollection.map((anime) => (
+              {this.props.animeCollection.map(anime => (
                   <option value={anime.id} key={anime.id}>{anime.title}</option>
                 )
               )};

@@ -11,14 +11,14 @@ import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5"
 import { auth } from "../firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
 
-const SidebarTab = ({addPlace, places, animeCollection }) => {
+const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID  }) => {
     const [key, setKey] = useState('search');
     const [user, setUser] = useState({});
 
     onAuthStateChanged(auth, (currentUser) => {
         setUser(currentUser);
     });
-    if (user) {
+    if (true) {
     return (
         <Tabs
         id="controlled-tab-example"
@@ -29,8 +29,11 @@ const SidebarTab = ({addPlace, places, animeCollection }) => {
         >
             <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
                 <Search
-                    places={places}
+                    filter={filter}
                     animeCollection={animeCollection}
+                    updateFilterBuildings = {updateFilterBuildings}
+                    updatefilterNature = {updatefilterNature}
+                    updatefilterAnimeID = {updatefilterAnimeID}
                 />
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
@@ -38,7 +41,6 @@ const SidebarTab = ({addPlace, places, animeCollection }) => {
             </Tab>
             <Tab eventKey="add" title={<IoDuplicateSharp/>} style={{'flex':'1 0 auto'}}>
                 <AddplaceForm 
-                addPlace={addPlace}
                 places={places}
                 animeCollection={animeCollection}
                 />
@@ -46,22 +48,6 @@ const SidebarTab = ({addPlace, places, animeCollection }) => {
         </Tabs>
     );
     } else {
-        return (
-            <Tabs
-            id="controlled-tab-example"
-            activeKey={key}
-            onSelect={(k) => setKey(k)}
-            className="mb-3"
-            style={{'display': 'flex', 'flex-direction': 'row', 'justify-content':'space-evenly', }}
-            >
-                <Tab eventKey="search" title={<IoSearchSharp/>} style={{'flex':'1 0 auto'}}>
-                    <Search></Search>
-                </Tab>
-                <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
-                    <LoginHeader/>
-                </Tab>
-            </Tabs>
-        );  
     }
 }
 

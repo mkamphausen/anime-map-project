@@ -1,5 +1,5 @@
 //import react & external tools
-import React, {useEffect} from "react";
+import React from "react";
 //import components
 import Map from "./components/Map"
 // import NewMap from "./components/NewMap"
@@ -15,9 +15,25 @@ class App extends React.Component {
 
   //state - where the data lives
   state = {
-    places: {},
-    anime:{}
+    places: [],
+    anime:[],
+    filter:{
+      buildings:false,
+      nature:false,
+      animeID:''
+    }
   };
+
+ //update filter
+  updateFilterBuildings = (newBuilding, oldNature, oldAnimeID) => {
+    this.setState({ filter: {buildings: newBuilding, nature: oldNature, animeID: oldAnimeID}});
+  }
+  updatefilterNature = (oldBuilding, newNature, oldAnimeID) => {
+    this.setState({ filter: {buildings: oldBuilding, nature: newNature, animeID: oldAnimeID}});
+  }
+  updatefilterAnimeID = (oldBuilding, oldNature, newAnimeID) => {
+    this.setState({ filter: {buildings: oldBuilding, nature: oldNature, animeID: newAnimeID}});
+  }
   
   fetchPlaces = async () => {
     const places = await getPlaces();
@@ -39,15 +55,23 @@ class App extends React.Component {
     return (
       <>
         <Header
-          addPlace={this.addPlace}
-          places={this.state.places} 
-          animeCollection={this.state.anime}
+          filter = {this.state.filter}
+          places = {this.state.places} 
+          animeCollection = {this.state.anime}
+          updateFilterBuildings = {this.updatefilterAnimeID}
+          updatefilterNature = {this.updatefilterAnimeID}
+          updatefilterAnimeID = {this.updatefilterAnimeID}
         />
-        {/* content */}
-        <div className="content">
           {/* <NewMap places={this.state.places} animeCollection={this.state.anime}/> */}
-          <Map id="map" places={this.state.places} animeCollection={this.state.anime}/>
+        <div>
+        <Map 
+          id="map" 
+          places = {this.state.places} 
+          animeCollection = {this.state.anime}
+          filter = {this.state.filter}
+        />
         </div>
+
       </>
     );
   }
