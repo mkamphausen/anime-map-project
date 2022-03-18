@@ -63,8 +63,8 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
           {description? description : ""}
       </div>
         <div>
-        <span id="mittig" className="popUpSupTitle">Koordinaten:</span>
-        <p>{coordinates[0]} | {coordinates[1]}</p> 
+        <span className="popUpSupTitle">Koordinaten:</span>
+        <p  id="mittig">{coordinates[0]} | {coordinates[1]}</p> 
         </div>
 
 
