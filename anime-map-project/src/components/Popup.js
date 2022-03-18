@@ -45,7 +45,7 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
               )
             )};
       </select>
-      <span className="header"><h5>{name? name + ", " : "" }{(town? town : "")} {country? " | ": ""} {country}</h5></span>
+      <span className="header" id="mittig"><h5>{name? name + ", " : "" }{(town? town : "")} {country? " | ": ""} {country}</h5></span>
       {/* <span className="header">Anime: {title}</span> */}
       <div className="pictures">
         {/* <img src={animeImg} alt="" />
@@ -56,12 +56,12 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
         </div>
 
       <div className="description">
-        <span className="header">Episode</span>
-          {episode}
-          <span className="header">Beschreibung</span>
-          {description}
-        </div> 
-        <span>{coordinates[0]} | {coordinates[1]}</span> 
+        <span className="header">Episode {episode}</span>
+      </div>
+      <div>
+        <span className="header">Description {description}</span>
+      </div> 
+      <span id="mittig">{coordinates[0]} | {coordinates[1]}</span> 
 
 
        
