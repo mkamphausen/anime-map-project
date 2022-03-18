@@ -7,7 +7,7 @@ import { Navbar, Container, Nav  } from 'react-bootstrap';
 import logo from '../logo.svg'
 
 const Header = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID })  => (
-  <Navbar className="header" expand="md">
+  <Navbar className='header' expand="md">
     <Container fluid>
     <div className="container">
       <Navbar.Brand href="#">        
