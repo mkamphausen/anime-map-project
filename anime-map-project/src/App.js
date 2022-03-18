@@ -40,7 +40,7 @@ class App extends React.Component {
     this.setState({ places });
   }
 
-  fetchAnime = async () => {
+    fetchAnime = async () => {
     const anime = await getAnime();
     this.setState({ anime });
   }

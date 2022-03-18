@@ -47,3 +47,8 @@ export const addAppearanceByID = (refference, appearance) => {
         appearances: arrayUnion(appearance)
     })
 }
+
+
+// random array mit property string -> object alphabetisch zu sortieren
+// bubble sort . verschachtelung
+// nutzerverzeichnis sortieren (array nach string in object sortieren)
