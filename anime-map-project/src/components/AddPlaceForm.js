@@ -151,7 +151,7 @@ class AddPlaceForm extends React.Component {
                 name="name" 
                 ref={this.placeNameRef} 
                 type="text" 
-                placeholder="place name (required)" 
+                placeholder="Place name (required)" 
                 required
               />
               <Form.Control 
@@ -164,7 +164,7 @@ class AddPlaceForm extends React.Component {
                 name="country" 
                 ref={this.countryRef} 
                 type="text" 
-                placeholder="country" 
+                placeholder="Country" 
               />
             </p>
             <div>
@@ -178,14 +178,14 @@ class AddPlaceForm extends React.Component {
                 name="longitude"
                 ref={this.longitudeRef}
                 type="text"
-                placeholder="longitude (required)"
+                placeholder="Longitude (required)"
                 required
               />
               <Form.Control
                 name="latitude"
                 ref={this.latitudeRef}
                 type="text"
-                placeholder="latitude (required)"
+                placeholder="Latitude (required)"
                 required
               />
             </p>
