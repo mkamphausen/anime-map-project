@@ -212,7 +212,7 @@ class AddPlaceForm extends React.Component {
               />
             </p>
             <p>
-            <Form.Control as ="texta" name="desc" ref={this.descRef} placeholder="Desc" />
+            <Form.Control as ="textarea" name="desc" ref={this.descRef} placeholder="Desc" />
             </p>
             <Button type="submit">+ Add Place</Button>
             </Form.Group>
