@@ -27,7 +27,6 @@ const Header = ({ filter, places, animeCollection, updateFilterBuildings, update
           navbarScroll
         >
           <Nav.Link href="#map">Map</Nav.Link>
-          <Nav.Link href="#action2">About</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </div>
