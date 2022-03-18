@@ -32,3 +32,9 @@ code {
   flex-direction: "row";
   justify-content: "space-evenly";
 } */
+
+canvas ul {
+  display: "flex";
+  flex-direction: "row";
+  justify-content: "space-evenly";
+}
