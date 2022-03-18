@@ -6,7 +6,7 @@ import Sidebar from './Sidebar';
 import { Navbar, Container, Nav  } from 'react-bootstrap';
 
 const Header = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID })  => (
-  <Navbar bg="light" expand="md">
+  <Navbar className='header' expand="md">
     <Container fluid>
     <div className="container">
       <Navbar.Brand href="#">Anime Map Project</Navbar.Brand>
