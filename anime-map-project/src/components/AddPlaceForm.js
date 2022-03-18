@@ -151,7 +151,7 @@ class AddPlaceForm extends React.Component {
                 name="name" 
                 ref={this.placeNameRef} 
                 type="text" 
-                placeholder="place name*" 
+                placeholder="place name (required)" 
                 required
               />
               <Form.Control 
@@ -178,14 +178,14 @@ class AddPlaceForm extends React.Component {
                 name="longitude"
                 ref={this.longitudeRef}
                 type="text"
-                placeholder="longitude*"
+                placeholder="longitude (required)"
                 required
               />
               <Form.Control
                 name="latitude"
                 ref={this.latitudeRef}
                 type="text"
-                placeholder="latitude*"
+                placeholder="latitude (required)"
                 required
               />
             </p>
@@ -212,7 +212,7 @@ class AddPlaceForm extends React.Component {
               />
             </p>
             <p>
-            <Form.Control as ="textarea" name="desc" ref={this.descRef} placeholder="Desc" />
+            <Form.Control as ="texta" name="desc" ref={this.descRef} placeholder="Desc" />
             </p>
             <Button type="submit">+ Add Place</Button>
             </Form.Group>
