@@ -46,7 +46,7 @@ function App() {
     return (
     <div className="App">
     <br/>
-    <center><img src={user?.photoURL} /></center>
+    <center><img src={user?.photoURL} id="userProfilePicture"/></center>
     <br/><center><h4>Welcome {user?.displayName}</h4></center>
     <h5>You can now add Anime places to the map. Simply click on the <IoDuplicateSharp/> above your profile picture.</h5>
     <br/><h5>Email: {user?.email}</h5>
