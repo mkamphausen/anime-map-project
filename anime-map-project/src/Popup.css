@@ -1,6 +1,6 @@
-.popUp{
-  font: 400 15px/22px 'Source Sans Pro', 'Helvetica Neue', 'Sans-serif';
-  background: #F6F6F4; /* noch ans Farblayout anzupassen */
+.popUp {
+  font: 400 15px/22px "Source Sans Pro", "Helvetica Neue", "Sans-serif";
+  background: #f6f6f4; /* noch ans Farblayout anzupassen */
   padding: 10px;
   width: 370px;
   max-height: fit-content;
@@ -8,19 +8,27 @@
   position: absolute;
 }
 
+#animeIMG {
+  align-content: center;
+  float: inherit;
+  width: 350px;
+  height: 196.785px;
+  border: 1px solid #f6f6f4;
+}
 
-   #animeIMG {
-    align-content: center;
-    float: inherit;
-    width: 350px;
-    height: 196.785px;
-    border: 1px solid #F6F6F4;
- } 
- 
- #realIMG {
-    align-content: center;
-    width: 350px;
-    height: 196.785px;
-    border: 1px solid #F6F6F4;
-  
-} 
+#realIMG {
+  align-content: center;
+  width: 350px;
+  height: 196.785px;
+  border: 1px solid #f6f6f4;
+}
+
+.popUpSupTitle {
+  font-weight: bold;
+  min-width: 100px;
+}
+.infoSet {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}

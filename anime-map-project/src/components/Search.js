@@ -14,6 +14,8 @@ const Search = ({animeCollection, filter, updateFilterBuildings, updatefilterNat
 
     const [natureButton, setNatureButton ] = React.useState(true);
     const [buildingButton, setBuildingButton ] = React.useState(true);
+    const [natureMode, setNatureMode] = React.useState(true);
+    const [buildingMode, setBuildingMode] = React.useState(true);
     const bla = filter.Buildings;
     const bli = filter.Nature;
     const blub = filter.AnimeID;
