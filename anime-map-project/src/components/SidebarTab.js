@@ -4,9 +4,10 @@ import React, { useState } from "react";
 import AddplaceForm from './AddPlaceForm';
 import LoginHeader from "./LoginHeader"
 import Search from "./Search"
+import About from "./About"
 //import boostrap & styles
 import { Tabs, Tab } from 'react-bootstrap';
-import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp } from "react-icons/io5";
+import { IoPersonSharp, IoSearchSharp, IoDuplicateSharp, IoInformationSharp } from "react-icons/io5";
 //import Auth
 import { auth } from "../firebase-config";
 import { onAuthStateChanged } from "firebase/auth";
@@ -39,12 +40,15 @@ const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, up
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
                 <LoginHeader/>
             </Tab>
+            <Tab eventKey="about" title={<IoInformationSharp/>} style={{'flex':'1 0 auto'}}>
+                    <About></About>
+            </Tab>
             <Tab eventKey="add" title={<IoDuplicateSharp/>} style={{'flex':'1 0 auto'}}>
                 <AddplaceForm 
                 places={places}
                 animeCollection={animeCollection}
                 />
-            </Tab>
+            </Tab>    
         </Tabs>
     );
     } else {
@@ -67,6 +71,9 @@ const SidebarTab = ({ filter, places, animeCollection, updateFilterBuildings, up
             </Tab>
             <Tab eventKey="profile" title={<IoPersonSharp/>} style={{'flex':'1 0 auto'}}>
                 <LoginHeader/>
+            </Tab>
+            <Tab eventKey="about" title={<IoInformationSharp/>} style={{'flex':'1 0 auto'}}>
+                <About/>
             </Tab>
         </Tabs>  
         );
