@@ -4,14 +4,22 @@ import React from 'react';
 import Sidebar from './Sidebar';
 //import bootstrap & styles
 import { Navbar, Container, Nav  } from 'react-bootstrap';
+import logo from '../logo.svg'
 
 const Header = ({ filter, places, animeCollection, updateFilterBuildings, updatefilterNature, updatefilterAnimeID })  => (
-  <Navbar bg="light" expand="md">
+  <Navbar className="header" expand="md">
     <Container fluid>
     <div className="container">
-      <Navbar.Brand href="#">Anime Map Project</Navbar.Brand>
-      <Navbar.Toggle aria-controls="navbarScroll" />
-      <Navbar.Collapse id="navbarScroll">
+      <Navbar.Brand href="#">        
+        <img
+          alt=""
+          src={logo}
+          width="30"
+          height="30"
+          className="d-inline-block align-top"
+        />{' '}
+        Anime Map Project
+      </Navbar.Brand>
         <Sidebar
           backdrop="false"
           filter = {filter} 
@@ -21,15 +29,6 @@ const Header = ({ filter, places, animeCollection, updateFilterBuildings, update
           updatefilterNature = {updatefilterNature}
           updatefilterAnimeID = {updatefilterAnimeID}
         />
-        <Nav
-          className="me-auto my-2 my-lg-0"
-          style={{ maxHeight: '100px' }}
-          navbarScroll
-        >
-          <Nav.Link href="#map">Map</Nav.Link>
-          <Nav.Link href="#action2">About</Nav.Link>
-        </Nav>
-      </Navbar.Collapse>
     </div>
     </Container>
   </Navbar>

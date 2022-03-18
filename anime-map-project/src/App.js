@@ -54,6 +54,7 @@ class App extends React.Component {
   render(){
     return (
       <>
+      <div id="view">
         <Header
           filter = {this.state.filter}
           places = {this.state.places} 
@@ -71,7 +72,7 @@ class App extends React.Component {
           filter = {this.state.filter}
         />
         </div>
-
+      </div>
       </>
     );
   }
