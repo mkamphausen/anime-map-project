@@ -26,7 +26,6 @@ const Header = ({ filter, places, animeCollection, updateFilterBuildings, update
           style={{ maxHeight: '100px' }}
           navbarScroll
         >
-          <Nav.Link href="#map">Map</Nav.Link>
         </Nav>
       </Navbar.Collapse>
     </div>
