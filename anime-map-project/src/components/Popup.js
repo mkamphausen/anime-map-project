@@ -54,14 +54,6 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
       <img id="animeIMG" src={animePictureUrl? animePictureUrl : noIMG} alt={name}/>
       <img id="realIMG" src={realPictureUrl? realPictureUrl : noIMG} alt={name}/>
         </div>
-
-      <div className="description">
-        <span className="header">Episode</span>
-          {episode}
-          <span className="header">Description</span>
-          {description}
-        </div> 
-        <span>{coordinates[0]} | {coordinates[1]}</span> 
       <div className="infoSet">
         <span className="popUpSupTitle">{episode? 'episode: ':""}</span>
           {episode? episode:""}
