@@ -5,3 +5,7 @@
   flex-direction: row;
   justify-content: flex-end;
 }
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

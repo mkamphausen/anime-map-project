@@ -1,7 +1,10 @@
-import "../App.css";
+import "../Login.css";
 import { useState } from "react";
 import { auth } from "../firebase-config";
 import {  GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "firebase/auth";
+import { Button } from "react-bootstrap";
+import { IoLogInSharp, IoLogOutSharp,IoDuplicateSharp } from "react-icons/io5";
+
 
 function App() {
   const provider = new GoogleAuthProvider();
@@ -31,18 +34,28 @@ function App() {
     }
     
   };
-
+  if (!user) {
   return (
     <div className="App">
-      <button className="login-with-google-btn" onClick={signInWithGoogle}>
-        Sign in with Google
-      </button>
-      <button onClick={logout}> Sign Out </button>
-      <h4>{user?.displayName}</h4>
-      <h4>{user?.email}</h4>
-      <img src={user?.photoURL} />
+      <center>
+        <Button onClick={signInWithGoogle}>Login with Google <IoLogInSharp/></Button>
+      </center>
     </div>
   );
+  } else if (user) {
+    return (
+    <div className="App">
+    <br/>
+    <center><img src={user?.photoURL} /></center>
+    <br/><center><h4>Welcome {user?.displayName}</h4></center>
+    <h5>You can now add Anime places to the map. Simply click on the <IoDuplicateSharp/> above your profile picture.</h5>
+    <br/><h5>Email: {user?.email}</h5>
+    <br/><center>        <Button onClick={logout}>Logout <IoLogOutSharp/></Button>
+</center>
+  </div>
+    );
+  }
 }
+
 
 export default App;
