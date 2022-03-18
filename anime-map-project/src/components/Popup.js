@@ -11,7 +11,7 @@ import noIMG from '../noIMG.jpg';
 const Popup = ({ feature, linkedAnimeCollection }) => {
   //get feature information
   const appearances = filterAppearancesForPlace(linkedAnimeCollection, feature);
-  const {id, name, realImg, city, country } = feature.properties;
+  const {id, name, realPictureUrl, city, country } = feature.properties;
   const {coordinates} = feature.geometry
 
   //create hooks to set lokal state for popup content - fill with first found anime content by default
@@ -52,7 +52,7 @@ const Popup = ({ feature, linkedAnimeCollection }) => {
         <img src={realImg} alt="" /> */}
         {/* animeIMG? animeIMG:"..\noIMG.jpg" */}
       <img id="animeIMG" src={animePictureUrl? animePictureUrl : noIMG} alt={name}/>
-      <img id="realIMG" src={realImg? realImg : noIMG} alt={name}/>
+      <img id="realIMG" src={realPictureUrl? realPictureUrl : noIMG} alt={name}/>
         </div>
 
       <div className="description">

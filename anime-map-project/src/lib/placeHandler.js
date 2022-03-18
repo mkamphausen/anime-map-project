@@ -35,7 +35,7 @@ function placesIntoGeoJson(fetchedData){
                 "country":element?.country,
                 "linkedAnime": element?.linkedAnime,
                 "name":element?.name,
-                "realPictureUrl":element?.realPictureUrl,
+                "realPictureUrl":element?.realImg,
                 "tags":element?.tag,
                 "town":element?.town,
             }
