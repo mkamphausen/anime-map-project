@@ -73,7 +73,7 @@ const Map = ({filter, places, animeCollection}) => {
             //   },
                 paint:{
                     'circle-radius':5,
-                    'circle-color':'#ff0000',
+                    'circle-color':'#0077ff',
                 }
             });
             // map.setLayoutPropperty("animePlacesLayer", )
